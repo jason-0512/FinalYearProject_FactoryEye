@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactoryEye — Sign In</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  body { background: var(--surface); }
+.login-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50% / 50% ratio */
+}
+.login-form-side {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid var(--border);
+}
+.login-box {
+  width: 100%;
+  max-width: 400px; /* Controls form width */
+  text-align: left;  /* Keeps form elements, labels, and text left-aligned */
+}
+  .brand-mark { display: flex; align-items: baseline; gap: 2px; font-weight: 800; font-size: 24px; margin-bottom: 40px; letter-spacing: -0.02em; }
+  .brand-mark .fx1 { color: var(--ink-900); }
+  .brand-mark .fx2 { color: var(--steel-600); }
+  .login-box h2 { font-size: 22px; font-weight: 800; margin: 0 0 6px; color: var(--ink-900); }
+  .login-box .sub { color: var(--ink-500); font-size: 13.5px; margin-bottom: 30px; }
+  .pw-wrap { position: relative; }
+  .pw-wrap .eye { position: absolute; right: 12px; top: 9px; color: var(--ink-400); font-size: 14px; cursor: pointer; }
+  .login-row-between { display: flex; align-items: center; justify-content: space-between; margin: -4px 0 20px; font-size: 12.5px; }
+  .checkbox-row { display: flex; align-items: center; gap: 7px; color: var(--ink-700); }
+  .forgot-link { color: var(--steel-600); font-weight: 600; text-decoration: none; }
+  .oss-note { text-align: center; margin-top: 30px; font-size: 12.5px; color: var(--ink-500); line-height: 1.5; }
+
+  .login-visual {
+    background: linear-gradient(160deg, #F3F6FB 0%, #EAF0F9 100%);
+    display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+  }
+  .login-visual svg {
+  width: 85%;
+  height: auto;
+  max-width: 600px;
+}
+  .login-visual::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(37,99,235,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+</style>
+</head>
+<body>
+  <div class="login-shell">
+    <div class="login-form-side">
+      <div class="brand-mark"><span class="fx1">FACTORY</span><span class="fx2">EYE</span></div>
+
+      <div class="login-box">
+        <h2>Welcome Back</h2>
+        <div class="sub">Sign in to continue to your account</div>
+
+        <div class="field">
+          <label>Username</label>
+          <input type="text" placeholder="Enter username">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="pw-wrap">
+            <input type="password" placeholder="Enter password">
+            <span class="eye">&#128065;</span>
+          </div>
+        </div>
+
+        <div class="login-row-between">
+          <label class="checkbox-row"><input type="checkbox"> Remember me</label>
+          <a href="#" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <button class="btn btn-primary btn-full">Sign In</button>
+
+        <div class="oss-note">AI-powered quality inspection<br>and factory management system</div>
+      </div>
+    </div>
+
+    <div class="login-visual">
+      <svg width="420" height="340" viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative; z-index:1;">
+        <ellipse cx="210" cy="300" rx="190" ry="24" fill="#DCE6F5"/>
+        <rect x="60" y="240" width="300" height="14" rx="4" fill="#C7D6EC"/>
+        <rect x="70" y="220" width="34" height="34" rx="4" fill="#F5C87A"/>
+        <rect x="130" y="220" width="34" height="34" rx="4" fill="#F5C87A"/>
+        <rect x="190" y="220" width="34" height="34" rx="4" fill="#E8B25E"/>
+        <g stroke="#2563EB" stroke-width="6" stroke-linecap="round" fill="none">
+          <path d="M250 260 L250 190 L320 150" />
+          <circle cx="250" cy="260" r="8" fill="#1D3350" stroke="none"/>
+          <circle cx="250" cy="190" r="7" fill="#3B82F6" stroke="none"/>
+        </g>
+        <rect x="312" y="140" width="24" height="18" rx="3" fill="#0F1B2D"/>
+        <rect x="150" y="60" width="150" height="100" rx="8" fill="#0F1B2D"/>
+        <rect x="162" y="72" width="126" height="76" rx="4" fill="#152540"/>
+        <path d="M172 130 L190 110 L206 122 L226 90 L246 104 L266 82" stroke="#3B82F6" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="266" cy="82" r="4" fill="#F59E0B"/>
+        <rect x="205" y="160" width="10" height="18" fill="#94A3B8"/>
+        <rect x="185" y="176" width="50" height="8" rx="3" fill="#B6C2D9"/>
+        <rect x="330" y="230" width="30" height="26" rx="2" fill="#D9A75B"/>
+        <rect x="340" y="205" width="30" height="26" rx="2" fill="#E4B876"/>
+        <rect x="40" y="150" width="60" height="90" rx="5" fill="#1D3350"/>
+        <circle cx="70" cy="185" r="16" fill="none" stroke="#3B82F6" stroke-width="3" stroke-dasharray="4 4"/>
+        <circle cx="70" cy="185" r="4" fill="#F59E0B"/>
+        <rect x="52" y="215" width="36" height="8" rx="2" fill="#3B5170"/>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

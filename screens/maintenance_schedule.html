@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maintenance Schedule — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .machine-ic-lg { width:36px; height:36px; border-radius:8px; background:var(--steel-100); color:var(--steel-600); display:flex; align-items:center; justify-content:center; font-size:15px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">Maintenance</div>
+    <a class="nav-item" href="maintenance_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item" href="maintenance_machines.html"><span class="icon">⚙</span>Machines &amp; Equipment</a>
+    <a class="nav-item active" href="maintenance_schedule.html"><span class="icon">📅</span>Maintenance Schedule</a>
+    <a class="nav-item" href="maintenance_root_cause.html"><span class="icon">⌁</span>Root-Cause Analysis</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Maintenance Schedule</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">TK</div>Tariq Khalid</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="tab-row">
+        <div class="tab-item active">Upcoming</div>
+        <div class="tab-item">Completed</div>
+        <div class="tab-item">All Work Orders</div>
+      </div>
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Scheduled Maintenance Activities</div>
+              <div class="card-sub">Preventive and corrective maintenance · MEM4</div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="document.getElementById('schedModal').style.display='flex'">+ Schedule Maintenance</button>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Machine</th><th>Type</th><th>Scheduled Date</th><th>Assigned To</th><th>Status</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Press Machine PM-12</span></div></td>
+              <td><span class="badge badge-blue">Preventive</span></td>
+              <td class="text-muted">23 Aug 2026</td>
+              <td>T. Khalid</td>
+              <td><span class="badge badge-amber">Due Soon</span></td>
+              <td><button class="btn btn-secondary btn-sm">Log Action</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Welder Unit WM-07</span></div></td>
+              <td><span class="badge badge-red">Corrective</span></td>
+              <td class="text-muted">21 Aug 2026</td>
+              <td>T. Khalid</td>
+              <td><span class="badge badge-red">In Progress</span></td>
+              <td><button class="btn btn-secondary btn-sm">Log Action</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Robotic Arm RA-03</span></div></td>
+              <td><span class="badge badge-blue">Preventive</span></td>
+              <td class="text-muted">26 Aug 2026</td>
+              <td>N. Suresh</td>
+              <td><span class="badge badge-gray">Scheduled</span></td>
+              <td><button class="btn btn-secondary btn-sm">Log Action</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Conveyor Belt CB-01</span></div></td>
+              <td><span class="badge badge-blue">Preventive</span></td>
+              <td class="text-muted">28 Aug 2026</td>
+              <td>T. Khalid</td>
+              <td><span class="badge badge-gray">Scheduled</span></td>
+              <td><button class="btn btn-secondary btn-sm">Log Action</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Inspection Camera Rig C-04</span></div></td>
+              <td><span class="badge badge-blue">Preventive</span></td>
+              <td class="text-muted">18 Aug 2026</td>
+              <td>N. Suresh</td>
+              <td><span class="badge badge-green">Completed</span></td>
+              <td><button class="btn btn-secondary btn-sm">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="schedModal" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="title">Schedule Maintenance</div>
+      <span class="text-sm text-muted" style="cursor:pointer;" onclick="document.getElementById('schedModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Machine</label>
+        <select>
+          <option>Press Machine PM-12</option>
+          <option>Welder Unit WM-07</option>
+          <option>Robotic Arm RA-03</option>
+          <option>Conveyor Belt CB-01</option>
+        </select>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label>Maintenance Type</label>
+          <select><option>Preventive</option><option>Corrective</option></select>
+        </div>
+        <div class="field"><label>Scheduled Date</label><input type="text" placeholder="dd/mm/yyyy"></div>
+      </div>
+      <div class="field">
+        <label>Assigned To</label>
+        <select><option>T. Khalid</option><option>N. Suresh</option></select>
+      </div>
+      <div class="field"><label>Notes / Scope of Work</label><input type="text" placeholder="e.g. Filter replacement, lubrication, calibration"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('schedModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Schedule</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

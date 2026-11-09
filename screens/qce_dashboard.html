@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QC Engineer Dashboard — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .prod-row { display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid var(--border); }
+  .prod-row:last-child { border-bottom:none; }
+  .prod-ic { width:36px; height:36px; border-radius:8px; background:var(--steel-100); color:var(--steel-600); display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">QC Engineer</div>
+    <a class="nav-item active" href="qce_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item" href="qce_inspection_config.html"><span class="icon">⚗</span>Inspection Parameters</a>
+    <a class="nav-item" href="qce_reference_images.html"><span class="icon">🖼</span>Reference Images</a>
+    <a class="nav-item" href="qce_bom.html"><span class="icon">▤</span>Bill of Materials</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">QC Engineer Dashboard</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">SL</div>Siti Lim</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Product Types Configured</div>
+          <div class="stat-value num">14</div>
+          <div class="stat-delta flat">2 pending parameter review</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Reference Images</div>
+          <div class="stat-value num">386</div>
+          <div class="stat-delta up">▲ 22 this week</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Active BOMs</div>
+          <div class="stat-value num">14</div>
+          <div class="stat-delta flat">1 updated today</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg. Defect Tolerance</div>
+          <div class="stat-value num">3.5%</div>
+          <div class="stat-delta flat">Across all product types</div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="align-items:start;">
+
+        <div class="card card-pad">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Products Needing Attention</div>
+              <div class="card-sub">Parameters or reference images pending update</div>
+            </div>
+            <a class="card-link" href="qce_inspection_config.html">Configure →</a>
+          </div>
+          <div>
+            <div class="prod-row">
+              <div class="prod-ic">▣</div>
+              <div style="flex:1;">
+                <div class="cell-strong text-sm">Bracket Housing A3</div>
+                <div class="text-sm text-muted">Tolerance last reviewed 45 days ago</div>
+              </div>
+              <span class="badge badge-amber">Review Due</span>
+            </div>
+            <div class="prod-row">
+              <div class="prod-ic">▣</div>
+              <div style="flex:1;">
+                <div class="cell-strong text-sm">Panel C2</div>
+                <div class="text-sm text-muted">Only 4 reference images uploaded</div>
+              </div>
+              <span class="badge badge-amber">Low Coverage</span>
+            </div>
+            <div class="prod-row">
+              <div class="prod-ic">▣</div>
+              <div style="flex:1;">
+                <div class="cell-strong text-sm">Weld Joint B1</div>
+                <div class="text-sm text-muted">BOM unchanged since product launch</div>
+              </div>
+              <span class="badge badge-blue">Up to Date</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-pad">
+          <div class="card-head">
+            <div class="card-title">Recent Configuration Changes</div>
+          </div>
+          <div class="flex-col gap-10">
+            <div>
+              <div class="text-sm cell-strong">Updated defect tolerance — Bracket Housing A3</div>
+              <div class="text-sm text-muted">Scratch tolerance lowered to 2.0% · S. Lim · 09:10 AM</div>
+            </div>
+            <div>
+              <div class="text-sm cell-strong">Uploaded 6 reference images — Weld Joint B1</div>
+              <div class="text-sm text-muted">Crack examples, moderate severity · S. Lim · Yesterday</div>
+            </div>
+            <div>
+              <div class="text-sm cell-strong">Updated BOM — Panel C2</div>
+              <div class="text-sm text-muted">Steel sheet quantity revised to 1.2kg/unit · S. Lim · Yesterday</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

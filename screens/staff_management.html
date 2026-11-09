@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactoryEye — Staff Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⚙</div>FactoryEye</div>
+
+    <div class="nav-group-label">Dashboard</div>
+    <a class="nav-item" href="admin_dashboard.html"><span class="icon">▦</span> Dashboard</a>
+
+    <div class="nav-group-label">Configuration</div>
+    <a class="nav-item" href="product_types.html"><span class="icon">▧</span> Product Types</a>
+    <div class="nav-item active"><span class="icon">◫</span> Staff Management</div>
+
+    <div class="nav-group-label">System</div>
+    <div class="nav-item"><span class="icon">🔔</span> Notifications <span class="badge badge-red" style="margin-left:auto;">3</span></div>
+    <a class="nav-item" href="audit_log.html"><span class="icon">▭</span> Audit Log</a>
+    <div class="nav-item"><span class="icon">⚙</span> Settings</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Staff Management</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">AD</div> System Administrator <span style="color:var(--ink-400)">▾</span></div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Accounts</div>
+          <div class="stat-value num">48</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Active</div>
+          <div class="stat-value num" style="color:var(--green-600)">44</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Deactivated</div>
+          <div class="stat-value num" style="color:var(--ink-500)">4</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Distinct Roles</div>
+          <div class="stat-value num">8</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">User Accounts</div>
+              <div class="card-sub">Create and maintain staff profiles, credentials, and role-based access (RBAC)</div>
+            </div>
+            <button class="btn btn-primary" onclick="document.getElementById('addUserModal').style.display='flex'">+ Add User Account</button>
+          </div>
+
+          <div class="flex items-center gap-14" style="margin-bottom:16px;">
+            <div class="search-input" style="width:280px;">🔍 <span>Search by name or username…</span></div>
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+              <option>All Roles</option>
+              <option>System Administrator</option>
+              <option>Production Supervisor</option>
+              <option>Quality Control Engineer</option>
+              <option>Quality Control Inspector</option>
+              <option>Inventory Manager</option>
+              <option>Maintenance Worker</option>
+              <option>Maintenance Engineer</option>
+              <option>Factory Manager</option>
+            </select>
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+              <option>All Status</option>
+              <option>Active</option>
+              <option>Deactivated</option>
+            </select>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Employee</th><th>Username</th><th>Role</th><th>Department / Line</th><th>Status</th><th>Last Login</th><th>Actions</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="flex items-center gap-10"><div class="avatar-circle">RK</div><div><div class="cell-strong">Ravi Kumar</div><div class="text-muted text-sm">Employee ID: EMP-1042</div></div></td>
+              <td>ravi.kumar</td>
+              <td><span class="badge badge-blue">Production Supervisor</span></td>
+              <td>Line 2 — Assembly</td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td>21 Aug 2026, 08:41</td>
+              <td><a class="card-link" href="#">Edit</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Deactivate</a></td>
+            </tr>
+            <tr>
+              <td class="flex items-center gap-10"><div class="avatar-circle">NA</div><div><div class="cell-strong">Nur Aisyah</div><div class="text-muted text-sm">Employee ID: EMP-1088</div></div></td>
+              <td>nur.aisyah</td>
+              <td><span class="badge badge-amber">Quality Control Inspector</span></td>
+              <td>Inspection Bay 1</td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td>21 Aug 2026, 09:12</td>
+              <td><a class="card-link" href="#">Edit</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Deactivate</a></td>
+            </tr>
+            <tr>
+              <td class="flex items-center gap-10"><div class="avatar-circle">LH</div><div><div class="cell-strong">Lim Hui Min</div><div class="text-muted text-sm">Employee ID: EMP-1103</div></div></td>
+              <td>lim.hui.min</td>
+              <td><span class="badge badge-green">Inventory Manager</span></td>
+              <td>Warehouse A</td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td>18 Aug 2026, 08:50</td>
+              <td><a class="card-link" href="#">Edit</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Deactivate</a></td>
+            </tr>
+            <tr>
+              <td class="flex items-center gap-10"><div class="avatar-circle">TW</div><div><div class="cell-strong">Tan Wei Jie</div><div class="text-muted text-sm">Employee ID: EMP-0976</div></div></td>
+              <td>tan.wei.jie</td>
+              <td><span class="badge badge-red">Maintenance Worker</span></td>
+              <td>Machine Shop</td>
+              <td><span class="badge badge-gray">Deactivated</span></td>
+              <td>15 Aug 2026, 17:30</td>
+              <td><a class="card-link" href="#">Edit</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--green-600);" href="#">Reactivate</a></td>
+            </tr>
+            <tr>
+              <td class="flex items-center gap-10"><div class="avatar-circle">SF</div><div><div class="cell-strong">Siti Fatimah</div><div class="text-muted text-sm">Employee ID: EMP-1011</div></div></td>
+              <td>siti.fatimah</td>
+              <td><span class="badge badge-blue">Quality Control Engineer</span></td>
+              <td>QC Configuration</td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td>20 Aug 2026, 13:05</td>
+              <td><a class="card-link" href="#">Edit</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Deactivate</a></td>
+            </tr>
+            <tr>
+              <td class="flex items-center gap-10"><div class="avatar-circle">JC</div><div><div class="cell-strong">Jason Chua</div><div class="text-muted text-sm">Employee ID: EMP-0899</div></div></td>
+              <td>jason.chua</td>
+              <td><span class="badge badge-gray">Factory Manager</span></td>
+              <td>Plant Operations</td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td>19 Aug 2026, 07:58</td>
+              <td><a class="card-link" href="#">Edit</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Deactivate</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Add User Modal: SM1 + SM2 + SM3 -->
+<div class="modal-overlay" id="addUserModal" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="title">Add User Account</div>
+      <span style="cursor:pointer;color:var(--ink-400);" onclick="document.getElementById('addUserModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="grid-2">
+        <div class="field"><label>Full Name</label><input type="text" placeholder="e.g. Ahmad Faizal"></div>
+        <div class="field"><label>Employee ID</label><input type="text" placeholder="EMP-XXXX"></div>
+      </div>
+      <div class="field"><label>Username</label><input type="text" placeholder="ahmad.faizal"></div>
+      <div class="field"><label>Temporary Password</label><input type="password" placeholder="••••••••"></div>
+      <div class="field">
+        <label>Assign Role (RBAC)</label>
+        <select>
+          <option>System Administrator</option>
+          <option>Production Supervisor</option>
+          <option>Quality Control Engineer</option>
+          <option>Quality Control Inspector</option>
+          <option>Inventory Manager</option>
+          <option>Maintenance Worker</option>
+          <option>Maintenance Engineer</option>
+          <option>Factory Manager</option>
+        </select>
+      </div>
+      <div class="field"><label>Department / Production Line</label><input type="text" placeholder="e.g. Line 2 — Assembly"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('addUserModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Create Account</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

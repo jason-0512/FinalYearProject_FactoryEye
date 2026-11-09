@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactoryEye — Inventory &amp; Materials</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⚙</div>FactoryEye</div>
+
+    <div class="nav-group-label">Dashboard</div>
+    <a class="nav-item" href="production_supervisor_dashboard.html"><span class="icon">▦</span> Dashboard</a>
+
+    <div class="nav-group-label">Operations</div>
+    <a class="nav-item" href="production_batches.html"><span class="icon">▣</span> Production Batches</a>
+    <div class="nav-item active"><span class="icon">▤</span> Inventory &amp; Materials</div>
+
+    <div class="nav-group-label">Configuration</div>
+    <a class="nav-item" href="shift_scheduling.html"><span class="icon">◫</span> Staff Management</a>
+
+    <div class="nav-group-label">Equipment</div>
+    <a class="nav-item" href="maintenance_machines.html"><span class="icon">⚒</span> Maintenance &amp; Machines</a>
+
+    <div class="nav-group-label">Analytics</div>
+    <a class="nav-item" href="supplier_performance.html"><span class="icon">◈</span> Supplier Performance</a>
+
+    <div class="nav-group-label">System</div>
+    <div class="nav-item"><span class="icon">🔔</span> Notifications <span class="badge badge-red" style="margin-left:auto;">3</span></div>
+    <div class="nav-item"><span class="icon">⚙</span> Settings</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Inventory &amp; Materials</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">PS</div> Production Supervisor <span style="color:var(--ink-400)">▾</span></div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-label">Material Types</div><div class="stat-value num">32</div></div>
+        <div class="stat-card"><div class="stat-label">Below Threshold</div><div class="stat-value num" style="color:var(--red-600)">7</div></div>
+        <div class="stat-card"><div class="stat-label">Issued Today</div><div class="stat-value num">14 batches</div></div>
+        <div class="stat-card"><div class="stat-label">Pending Reconciliation</div><div class="stat-value num" style="color:var(--amber-500)">2</div></div>
+      </div>
+
+      <!-- Low stock alerts -->
+      <div class="card card-pad" style="margin-bottom:18px; border-color:var(--red-100); background:#FFFBFB;">
+        <div class="card-head" style="margin-bottom:10px;">
+          <div class="card-title" style="color:var(--red-600);">⚠ Low Stock Alerts</div>
+        </div>
+        <div class="grid-3">
+          <div class="flex items-center justify-between text-sm"><span>Steel Rod 12mm</span><span class="badge badge-red">18 kg left</span></div>
+          <div class="flex items-center justify-between text-sm"><span>PVC Resin Pellet</span><span class="badge badge-red">42 kg left</span></div>
+          <div class="flex items-center justify-between text-sm"><span>Rubber Compound A</span><span class="badge badge-amber">65 kg left</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Raw Material Stock</div>
+              <div class="card-sub">Current stock levels — issue materials to a production batch</div>
+            </div>
+            <button class="btn btn-primary" onclick="document.getElementById('issueModal').style.display='flex'">+ Issue Material to Batch</button>
+          </div>
+          <div class="flex items-center gap-14" style="margin-bottom:16px;">
+            <div class="search-input" style="width:240px;">🔍 <span>Search material…</span></div>
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+              <option>All Suppliers</option>
+              <option>MetalWorks Sdn Bhd</option>
+              <option>PolyChem Industries</option>
+            </select>
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+              <option>All Stock Status</option>
+              <option>Below Threshold</option>
+              <option>Healthy</option>
+            </select>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>Material</th><th>Supplier</th><th>Current Stock</th><th>Threshold</th><th>Unit</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="cell-strong">Steel Rod 12mm</td><td>MetalWorks Sdn Bhd</td><td class="num">18</td><td class="num">50</td><td>kg</td><td><span class="badge badge-red">Low</span></td></tr>
+            <tr><td class="cell-strong">PVC Resin Pellet</td><td>PolyChem Industries</td><td class="num">42</td><td class="num">100</td><td>kg</td><td><span class="badge badge-red">Low</span></td></tr>
+            <tr><td class="cell-strong">Rubber Compound A</td><td>PolyChem Industries</td><td class="num">65</td><td class="num">80</td><td>kg</td><td><span class="badge badge-amber">Watch</span></td></tr>
+            <tr><td class="cell-strong">Aluminium Sheet 2mm</td><td>MetalWorks Sdn Bhd</td><td class="num">310</td><td class="num">100</td><td>kg</td><td><span class="badge badge-green">Healthy</span></td></tr>
+            <tr><td class="cell-strong">Cardboard Sheet A3</td><td>PackRight Supplies</td><td class="num">890</td><td class="num">200</td><td>pcs</td><td><span class="badge badge-green">Healthy</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Issue Material Modal: IMM2 -->
+<div class="modal-overlay" id="issueModal" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="title">Issue Raw Material to Batch</div>
+      <span style="cursor:pointer;color:var(--ink-400);" onclick="document.getElementById('issueModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="field"><label>Production Batch</label>
+        <select><option>B-2025-0056 — Gear Shaft (Line 1)</option><option>B-2025-0054 — Piston Rod (Line 2)</option></select>
+      </div>
+      <div class="field"><label>Material</label>
+        <select><option>Steel Rod 12mm</option><option>PVC Resin Pellet</option><option>Rubber Compound A</option></select>
+      </div>
+      <div class="grid-2">
+        <div class="field"><label>Quantity to Issue</label><input type="number" placeholder="e.g. 20"></div>
+        <div class="field"><label>Unit</label><input type="text" value="kg" readonly></div>
+      </div>
+      <div class="text-sm text-muted">Issued quantity will be automatically deducted from current stock.</div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('issueModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Issue Material</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

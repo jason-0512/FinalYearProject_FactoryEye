@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Corrective Actions — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .thumb-lg { width:40px; height:40px; border-radius:8px; background:var(--navy-900); display:flex; align-items:center; justify-content:center; font-size:15px; color:#4C6A94;}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">QC Inspector</div>
+    <a class="nav-item" href="qc_inspector_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item" href="qc_live_inspection.html"><span class="icon">◉</span>Live Inspection</a>
+    <a class="nav-item" href="qc_review_queue.html"><span class="icon">☑</span>Review Queue</a>
+    <a class="nav-item" href="qc_defect_history.html"><span class="icon">☰</span>Defect &amp; Batch History</a>
+    <a class="nav-item active" href="qc_corrective_actions.html"><span class="icon">✎</span>Corrective Actions</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Corrective Actions</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">RN</div>Rina Nasir</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Investigations &amp; Corrective Actions</div>
+              <div class="card-sub">Document root-cause investigations for detected defects · QIM4</div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="document.getElementById('caModal').style.display='flex'">+ Log Corrective Action</button>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Defect</th><th>Batch / Product</th><th>Investigation</th><th>Action Taken</th><th>Status</th><th>Logged By</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="flex gap-8 items-center"><div class="thumb-lg">🖼</div><span class="cell-strong">Scratch — IMG-08231</span></div></td>
+              <td>PB-2026-0142 · Bracket A3</td>
+              <td>Traced to misaligned conveyor guide on Line 2</td>
+              <td>Guide realigned, machine recalibrated</td>
+              <td><span class="badge badge-green">Resolved</span></td>
+              <td>R. Nasir</td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-8 items-center"><div class="thumb-lg">🖼</div><span class="cell-strong">Dent — IMG-08234</span></div></td>
+              <td>PB-2026-0142 · Panel C2</td>
+              <td>Suspected mishandling during transfer to Station 4</td>
+              <td>Handling procedure under review with supervisor</td>
+              <td><span class="badge badge-amber">In Progress</span></td>
+              <td>R. Nasir</td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-8 items-center"><div class="thumb-lg">🖼</div><span class="cell-strong">Crack — IMG-08214</span></div></td>
+              <td>PB-2026-0139 · Weld Joint B1</td>
+              <td>Root cause correlated to Welder Unit WM-07 overheating</td>
+              <td>Machine flagged for maintenance, welder recalibrated</td>
+              <td><span class="badge badge-green">Resolved</span></td>
+              <td>A. Farid</td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-8 items-center"><div class="thumb-lg">🖼</div><span class="cell-strong">Discoloration — IMG-08150</span></div></td>
+              <td>PB-2026-0135 · Panel C2</td>
+              <td>Pending — awaiting material batch review</td>
+              <td>—</td>
+              <td><span class="badge badge-gray">Open</span></td>
+              <td>R. Nasir</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="caModal" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="title">Log Corrective Action</div>
+      <span class="text-sm text-muted" style="cursor:pointer;" onclick="document.getElementById('caModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Related Defect / Image ID</label>
+        <select>
+          <option>IMG-08234 — Dent, Panel C2</option>
+          <option>IMG-08231 — Scratch, Bracket A3</option>
+          <option>IMG-08150 — Discoloration, Panel C2</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Investigation Findings</label>
+        <input type="text" placeholder="Describe the root cause identified">
+      </div>
+      <div class="field">
+        <label>Corrective Action Taken</label>
+        <input type="text" placeholder="Describe the action or fix applied">
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label>Status</label>
+          <select>
+            <option>Open</option>
+            <option>In Progress</option>
+            <option>Resolved</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Related Machine (optional)</label>
+          <select>
+            <option>— None —</option>
+            <option>Welder Unit WM-07</option>
+            <option>Conveyor Guide L2-CG3</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('caModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Save Record</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

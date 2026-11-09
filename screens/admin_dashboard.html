@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactoryEye — Admin Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⚙</div>FactoryEye</div>
+
+    <div class="nav-group-label">Dashboard</div>
+    <div class="nav-item active"><span class="icon">▦</span> Dashboard</div>
+
+    <div class="nav-group-label">Configuration</div>
+    <a class="nav-item" href="product_types.html"><span class="icon">▧</span> Product Types</a>
+    <a class="nav-item" href="staff_management.html"><span class="icon">◫</span> Staff Management</a>
+
+    <div class="nav-group-label">System</div>
+    <div class="nav-item"><span class="icon">🔔</span> Notifications <span class="badge badge-red" style="margin-left:auto;">3</span></div>
+    <a class="nav-item" href="audit_log.html"><span class="icon">▭</span> Audit Log</a>
+    <div class="nav-item"><span class="icon">⚙</span> Settings</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Dashboard</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">AD</div> System Administrator <span style="color:var(--ink-400)">▾</span></div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="card card-pad" style="margin-bottom:18px;">
+        <div class="card-head" style="margin-bottom:4px;">
+          <div>
+            <div class="card-title" style="font-size:16px;">Good morning, Admin 👋</div>
+            <div class="card-sub">System Administrator — user accounts, roles &amp; access, product type registry</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Staff Accounts</div>
+          <div class="stat-value num">48</div>
+          <div class="stat-delta up">▲ 3 added this month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Active Accounts</div>
+          <div class="stat-value num">44</div>
+          <div class="stat-delta flat">91.7% of total</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Deactivated Accounts</div>
+          <div class="stat-value num">4</div>
+          <div class="stat-delta down">▼ 2 this month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Registered Product Types</div>
+          <div class="stat-value num">17</div>
+          <div class="stat-delta up">▲ 1 added this week</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card card-pad">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Staff by Role</div>
+              <div class="card-sub">Distribution of active user accounts</div>
+            </div>
+            <a class="card-link" href="staff_management.html">Manage →</a>
+          </div>
+          <div class="flex items-center gap-18">
+            <div class="donut-wrap" style="width:150px;height:150px;">
+              <svg width="150" height="150" viewBox="0 0 42 42">
+                <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#EEF1F5" stroke-width="5"></circle>
+                <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#2563EB" stroke-width="5"
+                  stroke-dasharray="27 73" stroke-dashoffset="25" stroke-linecap="round"></circle>
+                <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#F59E0B" stroke-width="5"
+                  stroke-dasharray="19 81" stroke-dashoffset="98" stroke-linecap="round"></circle>
+                <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#16A34A" stroke-width="5"
+                  stroke-dasharray="15 85" stroke-dashoffset="79" stroke-linecap="round"></circle>
+                <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#DC2626" stroke-width="5"
+                  stroke-dasharray="10 90" stroke-dashoffset="64" stroke-linecap="round"></circle>
+                <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#98A2B3" stroke-width="5"
+                  stroke-dasharray="29 71" stroke-dashoffset="54" stroke-linecap="round"></circle>
+              </svg>
+              <div class="donut-center"><div class="n">44</div><div class="l">Active</div></div>
+            </div>
+            <div class="flex-col gap-10" style="flex:1;">
+              <div class="flex items-center justify-between text-sm">
+                <span class="flex items-center gap-8"><span style="width:8px;height:8px;border-radius:50%;background:#2563EB;display:inline-block;"></span>Production Supervisor</span>
+                <span class="cell-strong num">12</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="flex items-center gap-8"><span style="width:8px;height:8px;border-radius:50%;background:#F59E0B;display:inline-block;"></span>QC Inspector / Engineer</span>
+                <span class="cell-strong num">9</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="flex items-center gap-8"><span style="width:8px;height:8px;border-radius:50%;background:#16A34A;display:inline-block;"></span>Inventory Manager</span>
+                <span class="cell-strong num">7</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="flex items-center gap-8"><span style="width:8px;height:8px;border-radius:50%;background:#DC2626;display:inline-block;"></span>Maintenance Worker / Engineer</span>
+                <span class="cell-strong num">5</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="flex items-center gap-8"><span style="width:8px;height:8px;border-radius:50%;background:#98A2B3;display:inline-block;"></span>Others (Admin, Factory Mgr)</span>
+                <span class="cell-strong num">11</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-pad">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Product Type Registry</div>
+              <div class="card-sub">Active vs deactivated product types</div>
+            </div>
+            <a class="card-link" href="product_types.html">Manage →</a>
+          </div>
+          <div class="flex-col gap-14">
+            <div>
+              <div class="flex items-center justify-between text-sm mb-0" style="margin-bottom:6px;">
+                <span class="text-muted">Active</span><span class="cell-strong num">15 / 17</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:88%;background:var(--green-600);"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-sm" style="margin-bottom:6px;">
+                <span class="text-muted">Deactivated</span><span class="cell-strong num">2 / 17</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:12%;background:var(--ink-400);"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-sm" style="margin-bottom:6px;">
+                <span class="text-muted">With reference images uploaded</span><span class="cell-strong num">13 / 17</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:76%;"></div></div>
+            </div>
+            <div class="text-sm text-muted">Newest: <span class="cell-strong">PVC Pipe Fitting — 25mm</span> · registered 2 days ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-pad" style="margin-top:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Recent Account &amp; Access Activity</div>
+            <div class="card-sub">Latest changes made by System Administrator</div>
+          </div>
+          <a class="card-link" href="audit_log.html">View Audit Log →</a>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Action</th><th>Account</th><th>Role Assigned</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>21 Aug 2026, 09:12</td>
+              <td>Created user account</td>
+              <td class="cell-strong">nur.aisyah</td>
+              <td>Quality Control Inspector</td>
+              <td><span class="badge badge-green">Active</span></td>
+            </tr>
+            <tr>
+              <td>20 Aug 2026, 16:40</td>
+              <td>Deactivated account</td>
+              <td class="cell-strong">tan.wei.jie</td>
+              <td>Maintenance Worker</td>
+              <td><span class="badge badge-gray">Deactivated</span></td>
+            </tr>
+            <tr>
+              <td>20 Aug 2026, 11:05</td>
+              <td>Registered product type</td>
+              <td class="cell-strong">PVC Pipe Fitting — 25mm</td>
+              <td>—</td>
+              <td><span class="badge badge-blue">Product Type</span></td>
+            </tr>
+            <tr>
+              <td>19 Aug 2026, 14:22</td>
+              <td>Updated role assignment</td>
+              <td class="cell-strong">ravi.kumar</td>
+              <td>Production Supervisor</td>
+              <td><span class="badge badge-green">Active</span></td>
+            </tr>
+            <tr>
+              <td>18 Aug 2026, 08:50</td>
+              <td>Created user account</td>
+              <td class="cell-strong">lim.hui.min</td>
+              <td>Inventory Manager</td>
+              <td><span class="badge badge-green">Active</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactoryEye — Audit Log</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .hash-chip { font-family: 'SF Mono', monospace; font-size:10.5px; color:var(--ink-400); background:#F2F4F7; padding:2px 6px; border-radius:4px; }
+  .action-ic { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⚙</div>FactoryEye</div>
+
+    <div class="nav-group-label">Dashboard</div>
+    <a class="nav-item" href="admin_dashboard.html"><span class="icon">▦</span> Dashboard</a>
+
+    <div class="nav-group-label">Configuration</div>
+    <a class="nav-item" href="product_types.html"><span class="icon">▧</span> Product Types</a>
+    <a class="nav-item" href="staff_management.html"><span class="icon">◫</span> Staff Management</a>
+
+    <div class="nav-group-label">System</div>
+    <div class="nav-item"><span class="icon">🔔</span> Notifications <span class="badge badge-red" style="margin-left:auto;">3</span></div>
+    <div class="nav-item active"><span class="icon">▭</span> Audit Log</div>
+    <div class="nav-item"><span class="icon">⚙</span> Settings</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Audit Log</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">AD</div> System Administrator <span style="color:var(--ink-400)">▾</span></div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="card card-pad" style="margin-bottom:18px;">
+        <div class="card-head" style="margin-bottom:4px;">
+          <div>
+            <div class="card-title" style="font-size:16px;">System Audit Log</div>
+            <div class="card-sub">Tamper-evident record of account, access, and configuration changes made across the system — helps System Administrators review what other admins have done</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Events Logged (30d)</div>
+          <div class="stat-value num">312</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Account Changes</div>
+          <div class="stat-value num">28</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Role / Access Changes</div>
+          <div class="stat-value num">11</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Distinct Admins Active</div>
+          <div class="stat-value num">3</div>
+        </div>
+      </div>
+
+      <div class="tab-row">
+        <div class="tab-item active">All Events</div>
+        <div class="tab-item">Account &amp; Access</div>
+        <div class="tab-item">Configuration Changes</div>
+        <div class="tab-item">Login Activity</div>
+      </div>
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Event Log</div>
+              <div class="card-sub">Every entry is hash-linked to the previous one for tamper-evidence</div>
+            </div>
+            <div class="flex gap-10">
+              <div class="search-input" style="width:240px;">🔍 <span>Search user, action, target…</span></div>
+              <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+                <option>All Admins</option>
+                <option>System Administrator (AD)</option>
+                <option>Aiman Rashid (AR)</option>
+                <option>Farah Zulkifli (FZ)</option>
+              </select>
+              <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+                <option>Last 30 days</option>
+                <option>Last 7 days</option>
+                <option>Today</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th></th><th>Timestamp</th><th>Admin</th><th>Action</th><th>Target</th><th>Details</th><th>Log Hash</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="action-ic" style="background:var(--green-100); color:var(--green-600);">＋</div></td>
+              <td class="text-muted">21 Aug 2026, 09:12</td>
+              <td class="cell-strong">System Administrator</td>
+              <td>Created user account</td>
+              <td>nur.aisyah</td>
+              <td>Role: Quality Control Inspector</td>
+              <td><span class="hash-chip">a3f9…21c8</span></td>
+            </tr>
+            <tr>
+              <td><div class="action-ic" style="background:var(--red-100); color:var(--red-600);">⏻</div></td>
+              <td class="text-muted">20 Aug 2026, 16:40</td>
+              <td class="cell-strong">System Administrator</td>
+              <td>Deactivated user account</td>
+              <td>tan.wei.jie</td>
+              <td>Reason: Role transferred to Line 3</td>
+              <td><span class="hash-chip">7d02…f4a1</span></td>
+            </tr>
+            <tr>
+              <td><div class="action-ic" style="background:var(--steel-100); color:var(--steel-600);">▧</div></td>
+              <td class="text-muted">20 Aug 2026, 11:05</td>
+              <td class="cell-strong">Farah Zulkifli</td>
+              <td>Registered product type</td>
+              <td>PVC Pipe Fitting — 25mm</td>
+              <td>Category: Plastic Components</td>
+              <td><span class="hash-chip">5b8e…90dd</span></td>
+            </tr>
+            <tr>
+              <td><div class="action-ic" style="background:var(--amber-100); color:#B45309;">✎</div></td>
+              <td class="text-muted">19 Aug 2026, 14:22</td>
+              <td class="cell-strong">System Administrator</td>
+              <td>Updated role assignment</td>
+              <td>ravi.kumar</td>
+              <td>Role changed: QC Inspector → Production Supervisor</td>
+              <td><span class="hash-chip">e12a…6c3f</span></td>
+            </tr>
+            <tr>
+              <td><div class="action-ic" style="background:var(--green-100); color:var(--green-600);">＋</div></td>
+              <td class="text-muted">18 Aug 2026, 08:50</td>
+              <td class="cell-strong">Aiman Rashid</td>
+              <td>Created user account</td>
+              <td>lim.hui.min</td>
+              <td>Role: Inventory Manager</td>
+              <td><span class="hash-chip">bf40…1e97</span></td>
+            </tr>
+            <tr>
+              <td><div class="action-ic" style="background:var(--steel-100); color:var(--steel-600);">↪</div></td>
+              <td class="text-muted">17 Aug 2026, 21:03</td>
+              <td class="cell-strong">System Administrator</td>
+              <td>Signed in</td>
+              <td>admin console</td>
+              <td>IP 10.20.4.18 · Chrome on Windows</td>
+              <td><span class="hash-chip">9c71…4d0e</span></td>
+            </tr>
+            <tr>
+              <td><div class="action-ic" style="background:var(--red-100); color:var(--red-600);">✕</div></td>
+              <td class="text-muted">16 Aug 2026, 15:47</td>
+              <td class="cell-strong">Farah Zulkifli</td>
+              <td>Deactivated product type</td>
+              <td>Rubber Gasket Seal — 40mm</td>
+              <td>Reason: Superseded by new spec</td>
+              <td><span class="hash-chip">2a88…c015</span></td>
+            </tr>
+            <tr>
+              <td><div class="action-ic" style="background:var(--amber-100); color:#B45309;">✎</div></td>
+              <td class="text-muted">15 Aug 2026, 10:31</td>
+              <td class="cell-strong">System Administrator</td>
+              <td>Updated user profile</td>
+              <td>siti.fatimah</td>
+              <td>Department changed to QC Configuration</td>
+              <td><span class="hash-chip">61fa…8b22</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card card-pad" style="margin-top:18px; background:var(--canvas);">
+        <div class="flex gap-10 items-center">
+          <span style="font-size:16px;">ℹ</span>
+          <div class="text-sm text-muted">
+            This log covers account, access, and configuration events. Inspection-specific audit trails (AI classification overrides, defect confirmations) are tracked separately under Defect &amp; Batch History for traceability.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

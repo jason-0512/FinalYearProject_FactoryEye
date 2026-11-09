@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Review Queue — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .thumb-lg { width:44px; height:44px; border-radius:8px; background:var(--navy-900); display:flex; align-items:center; justify-content:center; font-size:16px; color:#4C6A94;}
+  .modal-img { background:var(--navy-950); border-radius:var(--radius-md); aspect-ratio:16/10; display:flex; align-items:center; justify-content:center; color:#3A5378; font-size:14px; margin-bottom:16px; }
+  .conf-pill { font-size:11px; font-weight:700; padding:2px 8px; border-radius:100px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">QC Inspector</div>
+    <a class="nav-item" href="qc_inspector_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item" href="qc_live_inspection.html"><span class="icon">◉</span>Live Inspection</a>
+    <a class="nav-item active" href="qc_review_queue.html"><span class="icon">☑</span>Review Queue</a>
+    <a class="nav-item" href="qc_defect_history.html"><span class="icon">☰</span>Defect &amp; Batch History</a>
+    <a class="nav-item" href="qc_corrective_actions.html"><span class="icon">✎</span>Corrective Actions</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">AI Review Queue</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">RN</div>Rina Nasir</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-label">Awaiting Review</div><div class="stat-value num">18</div></div>
+        <div class="stat-card"><div class="stat-label">Validated Today</div><div class="stat-value num">86</div></div>
+        <div class="stat-card"><div class="stat-label">Overridden Today</div><div class="stat-value num">5</div></div>
+        <div class="stat-card"><div class="stat-label">Avg. AI Confidence</div><div class="stat-value num">88.4%</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Pending AI Classifications</div>
+              <div class="card-sub">Validate AI outcomes against human judgement · QIM2</div>
+            </div>
+            <div class="flex gap-10">
+              <div class="search-input"><span>🔍</span>Search image ID or batch…</div>
+              <select style="padding:8px 12px; border:1px solid var(--border); border-radius:6px; font-size:13px;">
+                <option>All Batches</option>
+                <option>PB-2026-0142</option>
+                <option>PB-2026-0139</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Image</th><th>Image ID</th><th>Batch / Product</th><th>AI Classification</th><th>Confidence</th><th>Captured</th><th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="thumb-lg">🖼</div></td>
+              <td class="cell-strong">IMG-08231</td>
+              <td>PB-2026-0142 · Bracket Housing A3</td>
+              <td><span class="badge badge-red">Scratch — Reject</span></td>
+              <td class="num">92%</td>
+              <td class="text-muted">09:41 AM</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('reviewModal').style.display='flex'">Review</button></td>
+            </tr>
+            <tr>
+              <td><div class="thumb-lg">🖼</div></td>
+              <td class="cell-strong">IMG-08232</td>
+              <td>PB-2026-0142 · Bracket Housing A3</td>
+              <td><span class="badge badge-amber">Discoloration — Uncertain</span></td>
+              <td class="num">61%</td>
+              <td class="text-muted">09:38 AM</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('reviewModal').style.display='flex'">Review</button></td>
+            </tr>
+            <tr>
+              <td><div class="thumb-lg">🖼</div></td>
+              <td class="cell-strong">IMG-08234</td>
+              <td>PB-2026-0142 · Panel C2</td>
+              <td><span class="badge badge-red">Dent — Reject</span></td>
+              <td class="num">85%</td>
+              <td class="text-muted">09:35 AM</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('reviewModal').style.display='flex'">Review</button></td>
+            </tr>
+            <tr>
+              <td><div class="thumb-lg">🖼</div></td>
+              <td class="cell-strong">IMG-08236</td>
+              <td>PB-2026-0139 · Weld Joint B1</td>
+              <td><span class="badge badge-green">No Defect — Pass</span></td>
+              <td class="num">97%</td>
+              <td class="text-muted">09:29 AM</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('reviewModal').style.display='flex'">Review</button></td>
+            </tr>
+            <tr>
+              <td><div class="thumb-lg">🖼</div></td>
+              <td class="cell-strong">IMG-08237</td>
+              <td>PB-2026-0139 · Weld Joint B1</td>
+              <td><span class="badge badge-amber">Crack — Uncertain</span></td>
+              <td class="num">58%</td>
+              <td class="text-muted">09:24 AM</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('reviewModal').style.display='flex'">Review</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Review / Override Modal -->
+<div class="modal-overlay" id="reviewModal" style="display:none;">
+  <div class="modal-box" style="width:520px;">
+    <div class="modal-head">
+      <div class="title">Review Classification — IMG-08231</div>
+      <span class="text-sm text-muted" style="cursor:pointer;" onclick="document.getElementById('reviewModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="modal-img">📷 Captured frame preview</div>
+
+      <div class="grid-2" style="margin-bottom:16px;">
+        <div>
+          <div class="text-sm text-muted" style="margin-bottom:4px;">AI Result</div>
+          <div class="cell-strong">Scratch <span class="conf-pill badge-red">Reject</span></div>
+        </div>
+        <div>
+          <div class="text-sm text-muted" style="margin-bottom:4px;">Confidence</div>
+          <div class="cell-strong">92%</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Inspector Decision</label>
+        <select>
+          <option>Confirm AI classification (Scratch — Reject)</option>
+          <option>Override — Reclassify defect type</option>
+          <option>Override — Change outcome to Pass</option>
+          <option>Override — Escalate for engineering review</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Reclassified Defect Type (if overriding)</label>
+        <select>
+          <option>— No change —</option>
+          <option>Scratch</option>
+          <option>Dent</option>
+          <option>Crack</option>
+          <option>Discoloration</option>
+          <option>Dimensional Mismatch</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Inspector Notes</label>
+        <input type="text" placeholder="Reason for override or additional observation">
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('reviewModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Save Decision</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

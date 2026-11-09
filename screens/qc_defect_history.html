@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Defect &amp; Batch History — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .thumb-lg { width:40px; height:40px; border-radius:8px; background:var(--navy-900); display:flex; align-items:center; justify-content:center; font-size:15px; color:#4C6A94;}
+  .audit-row { display:flex; gap:12px; padding:11px 0; border-bottom:1px solid var(--border); }
+  .audit-row:last-child { border-bottom:none; }
+  .audit-icon { width:28px; height:28px; border-radius:50%; background:var(--steel-100); color:var(--steel-600); display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; }
+  .hash-chip { font-family: 'SF Mono', monospace; font-size:10.5px; color:var(--ink-400); background:#F2F4F7; padding:2px 6px; border-radius:4px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">QC Inspector</div>
+    <a class="nav-item" href="qc_inspector_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item" href="qc_live_inspection.html"><span class="icon">◉</span>Live Inspection</a>
+    <a class="nav-item" href="qc_review_queue.html"><span class="icon">☑</span>Review Queue</a>
+    <a class="nav-item active" href="qc_defect_history.html"><span class="icon">☰</span>Defect &amp; Batch History</a>
+    <a class="nav-item" href="qc_corrective_actions.html"><span class="icon">✎</span>Corrective Actions</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Defect &amp; Batch History</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">RN</div>Rina Nasir</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="tab-row">
+        <div class="tab-item active">Inspection Records</div>
+        <div class="tab-item">Audit Trail</div>
+      </div>
+
+      <div class="grid-2" style="grid-template-columns: 1.4fr 1fr; align-items:start;">
+
+        <div class="card">
+          <div class="card-pad" style="padding-bottom:0;">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Inspection History</div>
+                <div class="card-sub">Full traceability per product and batch · QIM5</div>
+              </div>
+              <div class="search-input"><span>🔍</span>Search product, batch, image ID…</div>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr><th>Image</th><th>ID</th><th>Batch</th><th>Product</th><th>Result</th><th>Inspector</th><th>Date</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="thumb-lg">🖼</div></td>
+                <td class="cell-strong">IMG-08231</td>
+                <td>PB-2026-0142</td>
+                <td>Bracket Housing A3</td>
+                <td><span class="badge badge-red">Rejected</span></td>
+                <td>R. Nasir</td>
+                <td class="text-muted">21 Aug, 09:41</td>
+              </tr>
+              <tr>
+                <td><div class="thumb-lg">🖼</div></td>
+                <td class="cell-strong">IMG-08230</td>
+                <td>PB-2026-0142</td>
+                <td>Bracket Housing A3</td>
+                <td><span class="badge badge-green">Passed</span></td>
+                <td>R. Nasir</td>
+                <td class="text-muted">21 Aug, 09:40</td>
+              </tr>
+              <tr>
+                <td><div class="thumb-lg">🖼</div></td>
+                <td class="cell-strong">IMG-08214</td>
+                <td>PB-2026-0139</td>
+                <td>Weld Joint B1</td>
+                <td><span class="badge badge-red">Rejected</span></td>
+                <td>A. Farid</td>
+                <td class="text-muted">21 Aug, 08:52</td>
+              </tr>
+              <tr>
+                <td><div class="thumb-lg">🖼</div></td>
+                <td class="cell-strong">IMG-08199</td>
+                <td>PB-2026-0139</td>
+                <td>Weld Joint B1</td>
+                <td><span class="badge badge-green">Passed</span></td>
+                <td>A. Farid</td>
+                <td class="text-muted">21 Aug, 08:30</td>
+              </tr>
+              <tr>
+                <td><div class="thumb-lg">🖼</div></td>
+                <td class="cell-strong">IMG-08150</td>
+                <td>PB-2026-0135</td>
+                <td>Panel C2</td>
+                <td><span class="badge badge-amber">Overridden → Pass</span></td>
+                <td>R. Nasir</td>
+                <td class="text-muted">20 Aug, 16:14</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex-col gap-14">
+          <div class="card card-pad">
+            <div class="card-title" style="margin-bottom:10px;">Batch Defect Rate</div>
+            <div class="detail-row" style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span class="text-muted text-sm">PB-2026-0142</span><span class="cell-strong num">6.1%</span></div>
+            <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span class="text-muted text-sm">PB-2026-0139</span><span class="cell-strong num">2.8%</span></div>
+            <div style="display:flex; justify-content:space-between; padding:8px 0;"><span class="text-muted text-sm">PB-2026-0135</span><span class="cell-strong num">4.4%</span></div>
+            <div class="text-sm text-muted" style="margin-top:8px;">Calculated automatically per QIM3</div>
+          </div>
+
+          <div class="card card-pad">
+            <div class="card-head">
+              <div class="card-title">Tamper-Evident Audit Trail</div>
+            </div>
+            <div class="audit-row">
+              <div class="audit-icon">✎</div>
+              <div>
+                <div class="text-sm cell-strong">Classification overridden</div>
+                <div class="text-sm text-muted">IMG-08150 · R. Nasir · 20 Aug, 16:14</div>
+                <div class="hash-chip">hash a3f9…21c8</div>
+              </div>
+            </div>
+            <div class="audit-row">
+              <div class="audit-icon">☑</div>
+              <div>
+                <div class="text-sm cell-strong">AI result confirmed</div>
+                <div class="text-sm text-muted">IMG-08231 · R. Nasir · 21 Aug, 09:41</div>
+                <div class="hash-chip">hash 7d02…f4a1</div>
+              </div>
+            </div>
+            <div class="audit-row">
+              <div class="audit-icon">📷</div>
+              <div>
+                <div class="text-sm cell-strong">Image captured &amp; classified</div>
+                <div class="text-sm text-muted">IMG-08230 · System (AI) · 21 Aug, 09:40</div>
+                <div class="hash-chip">hash 5b8e…90dd</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

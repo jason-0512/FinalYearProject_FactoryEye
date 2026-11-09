@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactoryEye — Production Supervisor Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⚙</div>FactoryEye</div>
+
+    <div class="nav-group-label">Dashboard</div>
+    <div class="nav-item active"><span class="icon">▦</span> Dashboard</div>
+
+    <div class="nav-group-label">Operations</div>
+    <a class="nav-item" href="production_batches.html"><span class="icon">▣</span> Production Batches</a>
+    <a class="nav-item" href="inventory_materials.html"><span class="icon">▤</span> Inventory &amp; Materials</a>
+
+    <div class="nav-group-label">Configuration</div>
+    <a class="nav-item" href="staff_scheduling.html"><span class="icon">◫</span> Staff Management</a>
+
+    <div class="nav-group-label">Equipment</div>
+    <a class="nav-item" href="maintenance_machines.html"><span class="icon">⚒</span> Maintenance &amp; Machines</a>
+
+    <div class="nav-group-label">Analytics</div>
+    <a class="nav-item" href="supplier_performance.html"><span class="icon">◈</span> Supplier Performance</a>
+
+    <div class="nav-group-label">System</div>
+    <div class="nav-item"><span class="icon">🔔</span> Notifications <span class="badge badge-red" style="margin-left:auto;">3</span></div>
+    <div class="nav-item"><span class="icon">⚙</span> Settings</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Dashboard</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">PS</div> Production Supervisor <span style="color:var(--ink-400)">▾</span></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="card card-pad" style="margin-bottom:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title" style="font-size:16px;">Good morning, Supervisor 👋</div>
+            <div class="card-sub">Production Supervisor — batches, shift scheduling, material issuance &amp; supplier oversight</div>
+          </div>
+          <button class="btn btn-primary">+ New Batch</button>
+        </div>
+        <div class="text-muted text-sm">Use the sidebar to schedule shifts, start production batches, issue raw materials, assign machines, or review supplier performance.</div>
+      </div>
+
+      <!-- KPI Stats -->
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Active Batches</div>
+          <div class="stat-value num">12</div>
+          <div class="stat-delta up">▲ 2 from yesterday</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Staff On Shift</div>
+          <div class="stat-value num">18</div>
+          <div class="stat-delta flat">of 24 total staff</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Machines Running</div>
+          <div class="stat-value num">18 / 20</div>
+          <div class="stat-delta up">90% uptime</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Low Stock Materials</div>
+          <div class="stat-value num" style="color:var(--red-600)">7</div>
+          <div class="stat-delta down">▼ Requires material issue</div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:18px;">
+        <!-- Batches per line chart -->
+        <div class="card card-pad">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Batches per Production Line</div>
+              <div class="card-sub">Active batch count by line, today</div>
+            </div>
+          </div>
+          <svg viewBox="0 0 400 160" style="width:100%;height:160px;">
+            <line x1="40" y1="10" x2="40" y2="130" stroke="var(--border)" stroke-width="1"/>
+            <line x1="40" y1="130" x2="380" y2="130" stroke="var(--border)" stroke-width="1"/>
+            <rect x="80" y="38" width="60" height="92" rx="4" fill="var(--steel-600)"/>
+            <text x="110" y="28" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink-900)">5</text>
+            <text x="110" y="148" text-anchor="middle" font-size="11" fill="var(--ink-500)">Line 1</text>
+            <rect x="190" y="57" width="60" height="73" rx="4" fill="var(--steel-500)"/>
+            <text x="220" y="47" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink-900)">4</text>
+            <text x="220" y="148" text-anchor="middle" font-size="11" fill="var(--ink-500)">Line 2</text>
+            <rect x="300" y="75" width="60" height="55" rx="4" fill="var(--steel-100)" stroke="var(--steel-500)" stroke-width="1.5"/>
+            <text x="330" y="65" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink-900)">3</text>
+            <text x="330" y="148" text-anchor="middle" font-size="11" fill="var(--ink-500)">Line 3</text>
+          </svg>
+        </div>
+
+        <!-- Shift roster / staff assignment: SM4, SM5, SM7 -->
+        <div class="card card-pad">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Today's Shift Roster</div>
+              <div class="card-sub">Staff scheduled &amp; assigned to lines this shift</div>
+            </div>
+            <a class="card-link" href="staff_scheduling.html">Manage →</a>
+          </div>
+          <table>
+            <thead><tr><th>Staff</th><th>Line</th><th>Shift</th><th>Task Status</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="flex items-center gap-10"><div class="avatar-circle" style="width:24px;height:24px;font-size:10px;">NA</div>Nur Aisyah</td>
+                <td>Line 1</td>
+                <td>Day (7–3)</td>
+                <td><span class="badge badge-blue">In-Progress</span></td>
+              </tr>
+              <tr>
+                <td class="flex items-center gap-10"><div class="avatar-circle" style="width:24px;height:24px;font-size:10px;">RK</div>Ravi Kumar</td>
+                <td>Line 1</td>
+                <td>Day (7–3)</td>
+                <td><span class="badge badge-green">Completed</span></td>
+              </tr>
+              <tr>
+                <td class="flex items-center gap-10"><div class="avatar-circle" style="width:24px;height:24px;font-size:10px;">SF</div>Siti Fatimah</td>
+                <td>Line 2</td>
+                <td>Day (7–3)</td>
+                <td><span class="badge badge-amber">Pending</span></td>
+              </tr>
+              <tr>
+                <td class="flex items-center gap-10"><div class="avatar-circle" style="width:24px;height:24px;font-size:10px;">JC</div>Jason Chua</td>
+                <td>Line 3</td>
+                <td>Evening (3–11)</td>
+                <td><span class="badge badge-blue">In-Progress</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Batches in progress -->
+      <div class="card card-pad" style="margin-bottom:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Batches In Progress</div>
+            <div class="card-sub">Batches you are currently supervising</div>
+          </div>
+          <a class="card-link" href="production_batches.html">View all batches →</a>
+        </div>
+        <table>
+          <thead><tr><th>Batch ID</th><th>Product</th><th>Line</th><th>Status</th><th>Inspection</th><th>Defect Rate</th><th>Progress</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="cell-strong">B-2025-0056</td><td>Gear Shaft</td><td>Line 1</td>
+              <td><span class="badge badge-blue">In Progress</span></td>
+              <td><span class="badge badge-amber">Inspecting</span></td>
+              <td class="num">2.1%</td>
+              <td><div class="progress-track" style="width:100px;"><div class="progress-fill" style="width:66%;"></div></div></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">B-2025-0054</td><td>Piston Rod</td><td>Line 2</td>
+              <td><span class="badge badge-blue">In Progress</span></td>
+              <td><span class="badge badge-gray">Not Started</span></td>
+              <td class="num">—</td>
+              <td><div class="progress-track" style="width:100px;"><div class="progress-fill" style="width:40%;"></div></div></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">B-2025-0052</td><td>Valve Body</td><td>Line 1</td>
+              <td><span class="badge badge-gray">Planned</span></td>
+              <td><span class="badge badge-gray">Not Started</span></td>
+              <td class="num">—</td>
+              <td><div class="progress-track" style="width:100px;"><div class="progress-fill" style="width:0%;"></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <!-- Low stock materials: IMM4 -->
+        <div class="card card-pad">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Low Stock Materials</div>
+              <div class="card-sub">Below configured threshold — issue may be blocked</div>
+            </div>
+            <a class="card-link" href="inventory_materials.html">Issue materials →</a>
+          </div>
+          <table>
+            <thead><tr><th>Material</th><th>On Hand</th><th>Threshold</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="cell-strong">Steel Rod 12mm</td><td class="num">85 kg</td><td class="num">100 kg</td><td><span class="badge badge-red">Low</span></td></tr>
+              <tr><td class="cell-strong">PVC Resin</td><td class="num">40 kg</td><td class="num">150 kg</td><td><span class="badge badge-red">Low</span></td></tr>
+              <tr><td class="cell-strong">Rubber Compound</td><td class="num">22 kg</td><td class="num">50 kg</td><td><span class="badge badge-red">Low</span></td></tr>
+              <tr><td class="cell-strong">Aluminium Sheet 2mm</td><td class="num">130 kg</td><td class="num">120 kg</td><td><span class="badge badge-amber">Near Limit</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Machine status + supplier flags: MEM2/3, SPA -->
+        <div class="card card-pad">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Machine Status</div>
+              <div class="card-sub">Assigned equipment across active lines</div>
+            </div>
+            <a class="card-link" href="maintenance_machines.html">View all →</a>
+          </div>
+          <table>
+            <thead><tr><th>Machine</th><th>Line</th><th>Status</th><th>Uptime</th></tr></thead>
+            <tbody>
+              <tr><td class="cell-strong">CNC-01</td><td>Line 1</td><td><span class="badge badge-green">Running</span></td><td class="num">97%</td></tr>
+              <tr><td class="cell-strong">Press-04</td><td>Line 2</td><td><span class="badge badge-green">Running</span></td><td class="num">92%</td></tr>
+              <tr><td class="cell-strong">Extruder-02</td><td>Line 3</td><td><span class="badge badge-amber">Due for Maintenance</span></td><td class="num">81%</td></tr>
+              <tr><td class="cell-strong">Molder-07</td><td>Line 2</td><td><span class="badge badge-red">Down</span></td><td class="num">0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Supplier performance flags -->
+      <div class="card card-pad" style="margin-top:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Supplier Watchlist</div>
+            <div class="card-sub">Suppliers flagged for defect rate or delivery performance</div>
+          </div>
+          <a class="card-link" href="supplier_performance.html">View report →</a>
+        </div>
+        <table>
+          <thead><tr><th>Supplier</th><th>Category</th><th>Defect Rate</th><th>On-Time Delivery</th><th>Flag</th></tr></thead>
+          <tbody>
+            <tr><td class="cell-strong">SteelCo Supplies</td><td>Metal Fittings</td><td class="num" style="color:var(--red-600);">6.8%</td><td class="num">78%</td><td><span class="badge badge-red">High Risk</span></td></tr>
+            <tr><td class="cell-strong">PolyPlast Sdn Bhd</td><td>Plastic Components</td><td class="num">2.1%</td><td class="num">95%</td><td><span class="badge badge-green">Good</span></td></tr>
+            <tr><td class="cell-strong">Nexa Packaging</td><td>Packaging</td><td class="num" style="color:#B45309;">3.9%</td><td class="num">85%</td><td><span class="badge badge-amber">Watch</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactoryEye — Product Types</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⚙</div>FactoryEye</div>
+
+    <div class="nav-group-label">Dashboard</div>
+    <a class="nav-item" href="admin_dashboard.html"><span class="icon">▦</span> Dashboard</a>
+
+    <div class="nav-group-label">Configuration</div>
+    <div class="nav-item active"><span class="icon">▧</span> Product Types</div>
+    <a class="nav-item" href="staff_management.html"><span class="icon">◫</span> Staff Management</a>
+
+    <div class="nav-group-label">System</div>
+    <div class="nav-item"><span class="icon">🔔</span> Notifications <span class="badge badge-red" style="margin-left:auto;">3</span></div>
+    <div class="nav-item"><span class="icon">▭</span> Audit Log</div>
+    <div class="nav-item"><span class="icon">⚙</span> Settings</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Product Types</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">AD</div> System Administrator <span style="color:var(--ink-400)">▾</span></div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Registered</div>
+          <div class="stat-value num">17</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Active</div>
+          <div class="stat-value num" style="color:var(--green-600)">15</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Deactivated</div>
+          <div class="stat-value num" style="color:var(--ink-500)">2</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Missing Reference Images</div>
+          <div class="stat-value num" style="color:var(--amber-500)">4</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Registered Product Types</div>
+              <div class="card-sub">Product types available for AI-assisted inspection configuration</div>
+            </div>
+            <button class="btn btn-primary" onclick="document.getElementById('addProductModal').style.display='flex'">+ Register Product Type</button>
+          </div>
+
+          <div class="flex items-center gap-14" style="margin-bottom:16px;">
+            <div class="search-input" style="width:280px;">🔍 <span>Search by product name or code…</span></div>
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+              <option>All Categories</option>
+              <option>Plastic Components</option>
+              <option>Metal Fittings</option>
+              <option>Packaging</option>
+              <option>Electronics</option>
+            </select>
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+              <option>All Status</option>
+              <option>Active</option>
+              <option>Deactivated</option>
+            </select>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Product Code</th><th>Product Name</th><th>Category</th><th>Reference Images</th><th>Defect Params Set</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-strong">PRD-0231</td>
+              <td>PVC Pipe Fitting — 25mm</td>
+              <td>Plastic Components</td>
+              <td><span class="badge badge-green">6 uploaded</span></td>
+              <td><span class="badge badge-blue">Configured</span></td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td><a class="card-link" href="#">View</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Deactivate</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">PRD-0198</td>
+              <td>Aluminium Hinge Bracket</td>
+              <td>Metal Fittings</td>
+              <td><span class="badge badge-green">10 uploaded</span></td>
+              <td><span class="badge badge-blue">Configured</span></td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td><a class="card-link" href="#">View</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Deactivate</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">PRD-0245</td>
+              <td>Corrugated Shipping Carton — M</td>
+              <td>Packaging</td>
+              <td><span class="badge badge-amber">0 uploaded</span></td>
+              <td><span class="badge badge-gray">Not Set</span></td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td><a class="card-link" href="#">View</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Deactivate</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">PRD-0176</td>
+              <td>PCB Connector Housing</td>
+              <td>Electronics</td>
+              <td><span class="badge badge-green">14 uploaded</span></td>
+              <td><span class="badge badge-blue">Configured</span></td>
+              <td><span class="badge badge-green">Active</span></td>
+              <td><a class="card-link" href="#">View</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Deactivate</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">PRD-0102</td>
+              <td>Rubber Gasket Seal — 40mm</td>
+              <td>Plastic Components</td>
+              <td><span class="badge badge-green">8 uploaded</span></td>
+              <td><span class="badge badge-blue">Configured</span></td>
+              <td><span class="badge badge-gray">Deactivated</span></td>
+              <td><a class="card-link" href="#">View</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--green-600);" href="#">Reactivate</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Register Product Type Modal: PIC1 -->
+<div class="modal-overlay" id="addProductModal" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="title">Register New Product Type</div>
+      <span style="cursor:pointer;color:var(--ink-400);" onclick="document.getElementById('addProductModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="grid-2">
+        <div class="field"><label>Product Code</label><input type="text" placeholder="PRD-XXXX"></div>
+        <div class="field"><label>Category</label>
+          <select>
+            <option>Plastic Components</option>
+            <option>Metal Fittings</option>
+            <option>Packaging</option>
+            <option>Electronics</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label>Product Name</label><input type="text" placeholder="e.g. PVC Pipe Fitting — 25mm"></div>
+      <div class="field"><label>Description</label><input type="text" placeholder="Short description (optional)"></div>
+      <div class="text-sm text-muted">Note: Inspection parameters, defect tolerance, and reference images are configured separately by the Quality Control Engineer.</div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('addProductModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Register Product Type</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

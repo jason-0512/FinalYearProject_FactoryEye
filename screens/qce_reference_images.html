@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reference Images — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .img-grid { display:grid; grid-template-columns: repeat(5, 1fr); gap:12px; }
+  .img-card { border:1px solid var(--border); border-radius: var(--radius-md); overflow:hidden; background:var(--surface); }
+  .img-thumb { aspect-ratio:1; background:var(--navy-900); display:flex; align-items:center; justify-content:center; color:#4C6A94; font-size:22px; position:relative; }
+  .img-card-body { padding:8px 10px; }
+  .img-card-body .lbl { font-size:11.5px; font-weight:700; color:var(--ink-900); }
+  .img-card-body .sub { font-size:10.5px; color:var(--ink-500); margin-top:2px; }
+  .img-actions { display:flex; gap:4px; padding: 0 10px 10px; }
+  .upload-box { border:2px dashed var(--border); border-radius: var(--radius-md); aspect-ratio:1; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px; color:var(--ink-400); font-size:12px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">QC Engineer</div>
+    <a class="nav-item" href="qce_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item" href="qce_inspection_config.html"><span class="icon">⚗</span>Inspection Parameters</a>
+    <a class="nav-item active" href="qce_reference_images.html"><span class="icon">🖼</span>Reference Images</a>
+    <a class="nav-item" href="qce_bom.html"><span class="icon">▤</span>Bill of Materials</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Reference Images</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">SL</div>Siti Lim</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="card card-pad">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Reference Image Library — Bracket Housing A3</div>
+            <div class="card-sub">Used to train and calibrate AI-assisted inspection · PIC3, PIC5</div>
+          </div>
+          <div class="flex gap-10">
+            <select style="padding:8px 12px; border:1px solid var(--border); border-radius:6px; font-size:13px;">
+              <option>Bracket Housing A3</option>
+              <option>Weld Joint B1</option>
+              <option>Panel C2</option>
+            </select>
+            <select style="padding:8px 12px; border:1px solid var(--border); border-radius:6px; font-size:13px;">
+              <option>All Categories</option>
+              <option>Scratch</option>
+              <option>Dent</option>
+              <option>Discoloration</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="img-grid">
+          <div class="upload-box" onclick="document.getElementById('uploadModal').style.display='flex'">
+            <span style="font-size:22px;">＋</span>
+            Upload Image
+          </div>
+
+          <div class="img-card">
+            <div class="img-thumb">🖼</div>
+            <div class="img-card-body">
+              <div class="lbl">Scratch — Moderate</div>
+              <div class="sub">Uploaded 21 Aug</div>
+            </div>
+            <div class="img-actions">
+              <button class="btn btn-secondary btn-sm" style="flex:1;">Edit</button>
+              <button class="btn btn-danger btn-sm" style="flex:1;">Delete</button>
+            </div>
+          </div>
+
+          <div class="img-card">
+            <div class="img-thumb">🖼</div>
+            <div class="img-card-body">
+              <div class="lbl">Dent — Minor</div>
+              <div class="sub">Uploaded 21 Aug</div>
+            </div>
+            <div class="img-actions">
+              <button class="btn btn-secondary btn-sm" style="flex:1;">Edit</button>
+              <button class="btn btn-danger btn-sm" style="flex:1;">Delete</button>
+            </div>
+          </div>
+
+          <div class="img-card">
+            <div class="img-thumb">🖼</div>
+            <div class="img-card-body">
+              <div class="lbl">Discoloration — Minor</div>
+              <div class="sub">Uploaded 19 Aug</div>
+            </div>
+            <div class="img-actions">
+              <button class="btn btn-secondary btn-sm" style="flex:1;">Edit</button>
+              <button class="btn btn-danger btn-sm" style="flex:1;">Delete</button>
+            </div>
+          </div>
+
+          <div class="img-card">
+            <div class="img-thumb">🖼</div>
+            <div class="img-card-body">
+              <div class="lbl">No Defect — Reference</div>
+              <div class="sub">Uploaded 15 Aug</div>
+            </div>
+            <div class="img-actions">
+              <button class="btn btn-secondary btn-sm" style="flex:1;">Edit</button>
+              <button class="btn btn-danger btn-sm" style="flex:1;">Delete</button>
+            </div>
+          </div>
+
+          <div class="img-card">
+            <div class="img-thumb">🖼</div>
+            <div class="img-card-body">
+              <div class="lbl">Scratch — Severe</div>
+              <div class="sub">Uploaded 12 Aug</div>
+            </div>
+            <div class="img-actions">
+              <button class="btn btn-secondary btn-sm" style="flex:1;">Edit</button>
+              <button class="btn btn-danger btn-sm" style="flex:1;">Delete</button>
+            </div>
+          </div>
+
+          <div class="img-card">
+            <div class="img-thumb">🖼</div>
+            <div class="img-card-body">
+              <div class="lbl">Dent — Moderate</div>
+              <div class="sub">Uploaded 10 Aug</div>
+            </div>
+            <div class="img-actions">
+              <button class="btn btn-secondary btn-sm" style="flex:1;">Edit</button>
+              <button class="btn btn-danger btn-sm" style="flex:1;">Delete</button>
+            </div>
+          </div>
+
+          <div class="img-card">
+            <div class="img-thumb">🖼</div>
+            <div class="img-card-body">
+              <div class="lbl">No Defect — Reference</div>
+              <div class="sub">Uploaded 08 Aug</div>
+            </div>
+            <div class="img-actions">
+              <button class="btn btn-secondary btn-sm" style="flex:1;">Edit</button>
+              <button class="btn btn-danger btn-sm" style="flex:1;">Delete</button>
+            </div>
+          </div>
+
+          <div class="img-card">
+            <div class="img-thumb">🖼</div>
+            <div class="img-card-body">
+              <div class="lbl">Discoloration — Moderate</div>
+              <div class="sub">Uploaded 03 Aug</div>
+            </div>
+            <div class="img-actions">
+              <button class="btn btn-secondary btn-sm" style="flex:1;">Edit</button>
+              <button class="btn btn-danger btn-sm" style="flex:1;">Delete</button>
+            </div>
+          </div>
+
+          <div class="img-card">
+            <div class="img-thumb">🖼</div>
+            <div class="img-card-body">
+              <div class="lbl">Scratch — Minor</div>
+              <div class="sub">Uploaded 01 Aug</div>
+            </div>
+            <div class="img-actions">
+              <button class="btn btn-secondary btn-sm" style="flex:1;">Edit</button>
+              <button class="btn btn-danger btn-sm" style="flex:1;">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="uploadModal" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="title">Upload Reference Image</div>
+      <span class="text-sm text-muted" style="cursor:pointer;" onclick="document.getElementById('uploadModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="upload-box" style="aspect-ratio:16/9; margin-bottom:16px;">
+        <span style="font-size:26px;">📤</span>
+        Drag file here or click to browse
+      </div>
+      <div class="field">
+        <label>Product Type</label>
+        <select><option>Bracket Housing A3</option><option>Weld Joint B1</option><option>Panel C2</option></select>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label>Defect Category</label>
+          <select><option>No Defect (Reference)</option><option>Scratch</option><option>Dent</option><option>Discoloration</option><option>Crack</option></select>
+        </div>
+        <div class="field">
+          <label>Severity</label>
+          <select><option>—</option><option>Minor</option><option>Moderate</option><option>Severe</option></select>
+        </div>
+      </div>
+      <div class="field"><label>Notes</label><input type="text" placeholder="Optional description"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('uploadModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Upload Image</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

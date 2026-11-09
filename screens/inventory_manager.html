@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactoryEye — Inventory Manager Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⚙</div>FactoryEye</div>
+
+    <div class="nav-group-label">Dashboard</div>
+    <div class="nav-item active"><span class="icon">▦</span> Dashboard</div>
+
+    <div class="nav-group-label">Operations</div>
+    <div class="nav-item"><span class="icon">▤</span> Inventory &amp; Materials</div>
+
+    <div class="nav-group-label">Analytics</div>
+    <div class="nav-item"><span class="icon">▥</span> Reports</div>
+
+    <div class="nav-group-label">System</div>
+    <div class="nav-item"><span class="icon">🔔</span> Notifications <span class="badge badge-red" style="margin-left:auto;">5</span></div>
+    <div class="nav-item"><span class="icon">⚙</span> Settings</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Dashboard</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">EW</div> Inventory Manager <span style="color:var(--ink-400)">▾</span></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="card card-pad" style="margin-bottom:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title" style="font-size:16px;">Good morning, Emily 👋</div>
+            <div class="card-sub">Inventory Manager — raw materials, finished goods, stock reconciliation &amp; utilisation reports</div>
+          </div>
+        </div>
+        <div class="text-muted text-sm">Use the sidebar to record incoming materials, log finished goods disposition, reconcile stock counts, or generate wastage reports.</div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Raw Material SKUs</div>
+          <div class="stat-value num">58</div>
+          <div class="stat-delta flat">Across 4 categories</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Low Stock Items</div>
+          <div class="stat-value num">7</div>
+          <div class="stat-delta down">Below alert threshold</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Finished Goods (Today)</div>
+          <div class="stat-value num">312</div>
+          <div class="stat-delta up">296 accepted · 16 rejected</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pending Reconciliation</div>
+          <div class="stat-value num">3</div>
+          <div class="stat-delta flat">Materials awaiting count</div>
+        </div>
+      </div>
+
+      <div class="card card-pad" style="margin-bottom:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Stock Level vs. Threshold</div>
+            <div class="card-sub">Current stock as % of configured alert threshold</div>
+          </div>
+        </div>
+        <svg viewBox="0 0 400 160" style="width:100%;height:160px;">
+          <line x1="110" y1="10" x2="110" y2="130" stroke="var(--border)" stroke-width="1"/>
+          <line x1="110" y1="130" x2="380" y2="130" stroke="var(--border)" stroke-width="1"/>
+          <rect x="115" y="16" width="167" height="20" rx="4" fill="var(--amber-500)"/>
+          <text x="288" y="31" font-size="12" font-weight="700" fill="var(--ink-900)">83%</text>
+          <text x="108" y="31" text-anchor="end" font-size="11" fill="var(--ink-500)">Steel Rod</text>
+          <rect x="115" y="46" width="140" height="20" rx="4" fill="var(--amber-500)"/>
+          <text x="261" y="61" font-size="12" font-weight="700" fill="var(--ink-900)">70%</text>
+          <text x="108" y="61" text-anchor="end" font-size="11" fill="var(--ink-500)">Copper Wire</text>
+          <rect x="115" y="76" width="60" height="20" rx="4" fill="var(--red-600)"/>
+          <text x="181" y="91" font-size="12" font-weight="700" fill="var(--ink-900)">30%</text>
+          <text x="108" y="91" text-anchor="end" font-size="11" fill="var(--ink-500)">Plastic Granules</text>
+          <rect x="115" y="106" width="200" height="20" rx="4" fill="var(--green-600)"/>
+          <text x="321" y="121" font-size="12" font-weight="700" fill="var(--ink-900)">115%</text>
+          <text x="108" y="121" text-anchor="end" font-size="11" fill="var(--ink-500)">Aluminum Ingot</text>
+        </svg>
+      </div>
+
+      <div class="card card-pad">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Low Stock Alerts</div>
+            <div class="card-sub">Materials below their configured threshold</div>
+          </div>
+          <a class="card-link" href="#">View all materials →</a>
+        </div>
+        <table>
+          <thead><tr><th>Material</th><th>Current Stock</th><th>Threshold</th><th>Unit</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="cell-strong">Steel Rod (Ø12mm)</td><td class="num">1,250</td><td class="num">1,500</td><td>kg</td><td><span class="badge badge-amber">Low</span></td></tr>
+            <tr><td class="cell-strong">Copper Wire</td><td class="num">560</td><td class="num">800</td><td>kg</td><td><span class="badge badge-amber">Low</span></td></tr>
+            <tr><td class="cell-strong">Plastic Granules</td><td class="num">150</td><td class="num">500</td><td>kg</td><td><span class="badge badge-red">Critical</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

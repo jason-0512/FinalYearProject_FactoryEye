@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bill of Materials — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .prod-ic { width:36px; height:36px; border-radius:8px; background:var(--steel-100); color:var(--steel-600); display:flex; align-items:center; justify-content:center; font-size:15px; }
+  .bom-line { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid var(--border); }
+  .bom-line:last-child { border-bottom:none; }
+  .bom-line input { flex:1; padding:7px 10px; border:1px solid var(--border); border-radius:6px; font-size:13px; }
+  .bom-line .qty { width:90px; flex:none; }
+  .bom-line .unit { width:90px; flex:none; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">QC Engineer</div>
+    <a class="nav-item" href="qce_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item" href="qce_inspection_config.html"><span class="icon">⚗</span>Inspection Parameters</a>
+    <a class="nav-item" href="qce_reference_images.html"><span class="icon">🖼</span>Reference Images</a>
+    <a class="nav-item active" href="qce_bom.html"><span class="icon">▤</span>Bill of Materials</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Bill of Materials</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">SL</div>Siti Lim</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="grid-2" style="grid-template-columns: 1fr 1.4fr; align-items:start;">
+
+        <div class="card">
+          <div class="card-pad" style="padding-bottom:0;">
+            <div class="card-head">
+              <div class="card-title">Product Types</div>
+            </div>
+          </div>
+          <div style="padding: 0 8px 8px;">
+            <div class="prod-row" style="padding:10px 10px; border-radius:8px; background:var(--steel-100); display:flex; align-items:center; gap:10px;">
+              <div class="prod-ic">▣</div>
+              <div style="flex:1;">
+                <div class="cell-strong text-sm">Bracket Housing A3</div>
+                <div class="text-sm text-muted">4 materials</div>
+              </div>
+            </div>
+            <div class="prod-row" style="padding:10px 10px; display:flex; align-items:center; gap:10px;">
+              <div class="prod-ic">▣</div>
+              <div style="flex:1;">
+                <div class="cell-strong text-sm">Weld Joint B1</div>
+                <div class="text-sm text-muted">3 materials</div>
+              </div>
+            </div>
+            <div class="prod-row" style="padding:10px 10px; display:flex; align-items:center; gap:10px;">
+              <div class="prod-ic">▣</div>
+              <div style="flex:1;">
+                <div class="cell-strong text-sm">Panel C2</div>
+                <div class="text-sm text-muted">2 materials</div>
+              </div>
+            </div>
+            <div class="prod-row" style="padding:10px 10px; display:flex; align-items:center; gap:10px;">
+              <div class="prod-ic">▣</div>
+              <div style="flex:1;">
+                <div class="cell-strong text-sm">Housing Cover D5</div>
+                <div class="text-sm text-muted">3 materials</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-pad">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Bracket Housing A3 — Bill of Materials</div>
+              <div class="card-sub">Raw materials, quantity per unit, and unit of measure · PIC6, PIC7</div>
+            </div>
+            <span class="text-sm text-muted">Last updated 21 Aug by S. Lim</span>
+          </div>
+
+          <div style="display:flex; gap:10px; padding:8px 0; font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-500); font-weight:700; border-bottom:1px solid var(--border);">
+            <div style="flex:1;">Raw Material</div>
+            <div style="width:90px;">Qty / Unit</div>
+            <div style="width:90px;">UoM</div>
+            <div style="width:30px;"></div>
+          </div>
+
+          <div class="bom-line">
+            <input type="text" value="Steel Sheet, Grade A">
+            <input type="text" class="qty" value="0.85">
+            <select class="unit"><option>kg</option><option>g</option><option>pcs</option></select>
+            <button class="btn btn-secondary btn-sm">✕</button>
+          </div>
+          <div class="bom-line">
+            <input type="text" value="M4 Bolt">
+            <input type="text" class="qty" value="6">
+            <select class="unit"><option selected>pcs</option><option>kg</option></select>
+            <button class="btn btn-secondary btn-sm">✕</button>
+          </div>
+          <div class="bom-line">
+            <input type="text" value="Anti-Corrosion Coating">
+            <input type="text" class="qty" value="15">
+            <select class="unit"><option>ml</option><option selected>ml</option></select>
+            <button class="btn btn-secondary btn-sm">✕</button>
+          </div>
+          <div class="bom-line">
+            <input type="text" value="Rubber Gasket">
+            <input type="text" class="qty" value="2">
+            <select class="unit"><option selected>pcs</option></select>
+            <button class="btn btn-secondary btn-sm">✕</button>
+          </div>
+
+          <button class="btn btn-secondary btn-sm" style="margin-top:12px;">+ Add Material</button>
+
+          <div class="flex gap-10" style="margin-top:20px; justify-content:flex-end;">
+            <button class="btn btn-secondary">Cancel</button>
+            <button class="btn btn-primary">Save BOM</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

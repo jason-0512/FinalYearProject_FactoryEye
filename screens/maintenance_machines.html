@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Machines &amp; Equipment — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .machine-ic-lg { width:40px; height:40px; border-radius:8px; background:var(--steel-100); color:var(--steel-600); display:flex; align-items:center; justify-content:center; font-size:16px; }
+  .history-row { display:flex; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); }
+  .history-row:last-child { border-bottom:none; }
+  .history-icon { width:26px; height:26px; border-radius:50%; background:var(--canvas); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">Maintenance</div>
+    <a class="nav-item" href="maintenance_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item active" href="maintenance_machines.html"><span class="icon">⚙</span>Machines &amp; Equipment</a>
+    <a class="nav-item" href="maintenance_schedule.html"><span class="icon">📅</span>Maintenance Schedule</a>
+    <a class="nav-item" href="maintenance_root_cause.html"><span class="icon">⌁</span>Root-Cause Analysis</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Machines &amp; Equipment</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">TK</div>Tariq Khalid</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Equipment Registry</div>
+              <div class="card-sub">Register and maintain machine details · MEM1</div>
+            </div>
+            <div class="flex gap-10">
+              <div class="search-input"><span>🔍</span>Search machine, line…</div>
+              <button class="btn btn-primary btn-sm" onclick="document.getElementById('addModal').style.display='flex'">+ Register Machine</button>
+            </div>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Machine</th><th>Type</th><th>Assigned Line</th><th>Status</th><th>Operating Hrs</th><th>Last PM</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Welder Unit WM-07</span></div></td>
+              <td>Welding</td>
+              <td>Line 2</td>
+              <td><span class="badge badge-red">Down</span></td>
+              <td class="num">1,842</td>
+              <td class="text-muted">28 Jul</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('detailModal').style.display='flex'">View</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Press Machine PM-12</span></div></td>
+              <td>Stamping Press</td>
+              <td>Line 1</td>
+              <td><span class="badge badge-amber">Due for PM</span></td>
+              <td class="num">3,204</td>
+              <td class="text-muted">02 Jun</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('detailModal').style.display='flex'">View</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Conveyor Guide L2-CG3</span></div></td>
+              <td>Conveyor</td>
+              <td>Line 2</td>
+              <td><span class="badge badge-green">Running</span></td>
+              <td class="num">962</td>
+              <td class="text-muted">14 Aug</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('detailModal').style.display='flex'">View</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Robotic Arm RA-03</span></div></td>
+              <td>Robotic Assembly</td>
+              <td>Line 1</td>
+              <td><span class="badge badge-green">Running</span></td>
+              <td class="num">2,110</td>
+              <td class="text-muted">30 Jul</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('detailModal').style.display='flex'">View</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Inspection Camera Rig C-04</span></div></td>
+              <td>Vision System</td>
+              <td>Line 2</td>
+              <td><span class="badge badge-green">Running</span></td>
+              <td class="num">512</td>
+              <td class="text-muted">09 Aug</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('detailModal').style.display='flex'">View</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="machine-ic-lg">⚙</div><span class="cell-strong">Packaging Sealer PS-02</span></div></td>
+              <td>Packaging</td>
+              <td>Line 3</td>
+              <td><span class="badge badge-gray">Decommissioned</span></td>
+              <td class="num">5,918</td>
+              <td class="text-muted">—</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('detailModal').style.display='flex'">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Register Machine Modal -->
+<div class="modal-overlay" id="addModal" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="title">Register New Machine</div>
+      <span class="text-sm text-muted" style="cursor:pointer;" onclick="document.getElementById('addModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="grid-2">
+        <div class="field"><label>Machine Name</label><input type="text" placeholder="e.g. Welder Unit WM-08"></div>
+        <div class="field"><label>Machine Type</label>
+          <select><option>Welding</option><option>Stamping Press</option><option>Conveyor</option><option>Robotic Assembly</option><option>Vision System</option><option>Packaging</option></select>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="field"><label>Assigned Line</label>
+          <select><option>Line 1</option><option>Line 2</option><option>Line 3</option></select>
+        </div>
+        <div class="field"><label>Installation Date</label><input type="text" placeholder="dd/mm/yyyy"></div>
+      </div>
+      <div class="field"><label>Serial / Asset Number</label><input type="text" placeholder="e.g. AST-2026-0088"></div>
+      <div class="field"><label>Notes</label><input type="text" placeholder="Optional equipment notes"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('addModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Register Machine</button>
+    </div>
+  </div>
+</div>
+
+<!-- Machine Detail Modal -->
+<div class="modal-overlay" id="detailModal" style="display:none;">
+  <div class="modal-box" style="width:520px;">
+    <div class="modal-head">
+      <div class="title">Welder Unit WM-07</div>
+      <span class="text-sm text-muted" style="cursor:pointer;" onclick="document.getElementById('detailModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="grid-2" style="margin-bottom:16px;">
+        <div>
+          <div class="text-sm text-muted">Status</div>
+          <div class="cell-strong"><span class="badge badge-red">Down</span></div>
+        </div>
+        <div>
+          <div class="text-sm text-muted">Operating Hours</div>
+          <div class="cell-strong num">1,842 hrs</div>
+        </div>
+        <div>
+          <div class="text-sm text-muted">Assigned Line</div>
+          <div class="cell-strong">Line 2</div>
+        </div>
+        <div>
+          <div class="text-sm text-muted">Uptime (30d)</div>
+          <div class="cell-strong num">88.4%</div>
+        </div>
+      </div>
+
+      <div class="card-title text-sm" style="margin-bottom:8px;">Maintenance History · MEM7</div>
+      <div>
+        <div class="history-row">
+          <div class="history-icon">⚠</div>
+          <div>
+            <div class="text-sm cell-strong">Unplanned downtime — overheating</div>
+            <div class="text-sm text-muted">Corrective · 21 Aug, 09:15 · Logged by T. Khalid</div>
+          </div>
+        </div>
+        <div class="history-row">
+          <div class="history-icon">✓</div>
+          <div>
+            <div class="text-sm cell-strong">Preventive maintenance completed</div>
+            <div class="text-sm text-muted">Electrode replaced, cooling system flushed · 28 Jul</div>
+          </div>
+        </div>
+        <div class="history-row">
+          <div class="history-icon">✓</div>
+          <div>
+            <div class="text-sm cell-strong">Preventive maintenance completed</div>
+            <div class="text-sm text-muted">Routine inspection, no issues found · 15 Jun</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('detailModal').style.display='none'">Close</button>
+      <button class="btn btn-danger">Decommission</button>
+      <button class="btn btn-primary">Log Maintenance</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

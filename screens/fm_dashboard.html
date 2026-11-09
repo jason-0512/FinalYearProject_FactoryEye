@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Factory Manager Dashboard — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .trend-bars { display:flex; align-items:flex-end; gap:8px; height:120px; padding-top:8px; }
+  .trend-bar { flex:1; background: var(--steel-600); border-radius:4px 4px 0 0; position:relative; }
+  .trend-bar.peak { background: var(--red-600); }
+  .trend-labels { display:flex; gap:8px; margin-top:6px; }
+  .trend-labels span { flex:1; text-align:center; font-size:10.5px; color:var(--ink-500); }
+  .line-row { display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid var(--border); }
+  .line-row:last-child { border-bottom:none; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">Factory Manager</div>
+    <a class="nav-item active" href="fm_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item" href="fm_quality_reports.html"><span class="icon">📊</span>Quality Reports &amp; Trends</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Factory Manager Dashboard</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">JW</div>Jason Wong</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Overall Defect Rate (30d)</div>
+          <div class="stat-value num">4.1%</div>
+          <div class="stat-delta down">▼ 0.4% vs prior month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Units Inspected (30d)</div>
+          <div class="stat-value num">18,204</div>
+          <div class="stat-delta up">▲ 6.2% vs prior month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Batches Completed</div>
+          <div class="stat-value num">142</div>
+          <div class="stat-delta flat">6 currently in progress</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Recurring Issues Flagged</div>
+          <div class="stat-value num">3</div>
+          <div class="stat-delta down">2 linked to Welder WM-07</div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="align-items:start;">
+
+        <div class="card card-pad">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Defect Rate Trend — Last 8 Weeks</div>
+              <div class="card-sub">Identify recurring quality issues · QIM6</div>
+            </div>
+            <a class="card-link" href="fm_quality_reports.html">Full report →</a>
+          </div>
+          <div class="trend-bars">
+            <div class="trend-bar" style="height:52%;"></div>
+            <div class="trend-bar" style="height:61%;"></div>
+            <div class="trend-bar" style="height:48%;"></div>
+            <div class="trend-bar peak" style="height:88%;"></div>
+            <div class="trend-bar" style="height:70%;"></div>
+            <div class="trend-bar" style="height:55%;"></div>
+            <div class="trend-bar" style="height:44%;"></div>
+            <div class="trend-bar" style="height:41%;"></div>
+          </div>
+          <div class="trend-labels">
+            <span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span>
+          </div>
+        </div>
+
+        <div class="card card-pad">
+          <div class="card-head">
+            <div class="card-title">Defect Rate by Line</div>
+          </div>
+          <div>
+            <div class="line-row">
+              <div style="flex:1;">
+                <div class="cell-strong text-sm">Line 1</div>
+                <div class="progress-track" style="margin-top:6px;"><div class="progress-fill" style="width:31%;"></div></div>
+              </div>
+              <span class="num text-sm cell-strong">3.1%</span>
+            </div>
+            <div class="line-row">
+              <div style="flex:1;">
+                <div class="cell-strong text-sm">Line 2</div>
+                <div class="progress-track" style="margin-top:6px;"><div class="progress-fill" style="width:61%; background:var(--red-600);"></div></div>
+              </div>
+              <span class="num text-sm cell-strong">6.1%</span>
+            </div>
+            <div class="line-row">
+              <div style="flex:1;">
+                <div class="cell-strong text-sm">Line 3</div>
+                <div class="progress-track" style="margin-top:6px;"><div class="progress-fill" style="width:22%; background:var(--amber-500);"></div></div>
+              </div>
+              <span class="num text-sm cell-strong">2.2%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card card-pad" style="margin-top:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title">High-Risk Suppliers</div>
+            <div class="card-sub">Read-only overview · managed under Supplier Performance (Production Supervisor) · SPA3, SPA4</div>
+          </div>
+          <span class="badge badge-red">2 flagged</span>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Supplier</th><th>Category</th><th>Defect Rate</th><th>On-Time Delivery</th><th>Risk Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-strong">Meridian Steel Co.</td>
+              <td>Raw Steel Sheet</td>
+              <td class="num">8.4%</td>
+              <td class="num">76%</td>
+              <td><span class="badge badge-red">High Risk</span></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Nexbolt Fasteners</td>
+              <td>Bolts &amp; Fasteners</td>
+              <td class="num">6.1%</td>
+              <td class="num">81%</td>
+              <td><span class="badge badge-red">High Risk</span></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Coatal Finishes Sdn Bhd</td>
+              <td>Coatings</td>
+              <td class="num">2.3%</td>
+              <td class="num">94%</td>
+              <td><span class="badge badge-green">Stable</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

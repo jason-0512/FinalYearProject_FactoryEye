@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactoryEye — Supplier Performance</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⚙</div>FactoryEye</div>
+
+    <div class="nav-group-label">Dashboard</div>
+    <a class="nav-item" href="production_supervisor_dashboard.html"><span class="icon">▦</span> Dashboard</a>
+
+    <div class="nav-group-label">Operations</div>
+    <a class="nav-item" href="production_batches.html"><span class="icon">▣</span> Production Batches</a>
+    <a class="nav-item" href="inventory_materials.html"><span class="icon">▤</span> Inventory &amp; Materials</a>
+
+    <div class="nav-group-label">Configuration</div>
+    <a class="nav-item" href="shift_scheduling.html"><span class="icon">◫</span> Staff Management</a>
+
+    <div class="nav-group-label">Equipment</div>
+    <a class="nav-item" href="maintenance_machines.html"><span class="icon">⚒</span> Maintenance &amp; Machines</a>
+
+    <div class="nav-group-label">Analytics</div>
+    <div class="nav-item active"><span class="icon">◈</span> Supplier Performance</div>
+
+    <div class="nav-group-label">System</div>
+    <div class="nav-item"><span class="icon">🔔</span> Notifications <span class="badge badge-red" style="margin-left:auto;">3</span></div>
+    <div class="nav-item"><span class="icon">⚙</span> Settings</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Supplier Performance</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">PS</div> Production Supervisor <span style="color:var(--ink-400)">▾</span></div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-label">Total Suppliers</div><div class="stat-value num">14</div></div>
+        <div class="stat-card"><div class="stat-label">Avg. On-Time Delivery</div><div class="stat-value num">91.4%</div></div>
+        <div class="stat-card"><div class="stat-label">Avg. Defect Rate</div><div class="stat-value num">3.1%</div></div>
+        <div class="stat-card"><div class="stat-label">High-Risk Flagged</div><div class="stat-value num" style="color:var(--red-600)">2</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Supplier Records</div>
+              <div class="card-sub">Monitor performance, flag high-risk suppliers, and trace defective material batches back to source</div>
+            </div>
+            <button class="btn btn-primary" onclick="document.getElementById('supplierModal').style.display='flex'">+ Add Supplier</button>
+          </div>
+          <div class="flex items-center gap-14" style="margin-bottom:16px;">
+            <div class="search-input" style="width:240px;">🔍 <span>Search supplier…</span></div>
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+              <option>All Categories</option>
+              <option>Metal</option>
+              <option>Plastic / Resin</option>
+              <option>Packaging</option>
+            </select>
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+              <option>All Risk Levels</option>
+              <option>High Risk</option>
+              <option>Normal</option>
+            </select>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>Supplier</th><th>Category</th><th>On-Time Delivery</th><th>Defect Rate</th><th>Certification</th><th>Risk</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="cell-strong">MetalWorks Sdn Bhd</td><td>Metal</td>
+              <td class="num">96%</td><td class="num">1.2%</td>
+              <td><span class="badge badge-blue">ISO 9001</span></td>
+              <td><span class="badge badge-green">Normal</span></td>
+              <td><a class="card-link" href="#">View</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">PolyChem Industries</td><td>Plastic / Resin</td>
+              <td class="num">89%</td><td class="num">2.8%</td>
+              <td><span class="badge badge-blue">ISO 9001</span></td>
+              <td><span class="badge badge-green">Normal</span></td>
+              <td><a class="card-link" href="#">View</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">PackRight Supplies</td><td>Packaging</td>
+              <td class="num">78%</td><td class="num">6.4%</td>
+              <td><span class="badge badge-gray">Pending</span></td>
+              <td><span class="badge badge-red">High Risk</span></td>
+              <td><a class="card-link" href="#">View</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Flag</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Nexus Rubber Co.</td><td>Plastic / Resin</td>
+              <td class="num">70%</td><td class="num">8.1%</td>
+              <td><span class="badge badge-gray">Expired</span></td>
+              <td><span class="badge badge-red">High Risk</span></td>
+              <td><a class="card-link" href="#">View</a> &nbsp;|&nbsp; <a class="card-link" style="color:var(--red-600);" href="#">Flag</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">SteelCraft Malaysia</td><td>Metal</td>
+              <td class="num">94%</td><td class="num">1.9%</td>
+              <td><span class="badge badge-blue">ISO 9001</span></td>
+              <td><span class="badge badge-green">Normal</span></td>
+              <td><a class="card-link" href="#">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Root-cause traceability -->
+      <div class="card card-pad" style="margin-top:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Defective Batch → Supplier Trace</div>
+            <div class="card-sub">Link a defective raw material batch back to its originating supplier</div>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>Material Batch</th><th>Supplier</th><th>Linked Production Batch</th><th>Defect Found</th><th>Date</th></tr></thead>
+          <tbody>
+            <tr><td class="cell-strong">MB-7741</td><td>Nexus Rubber Co.</td><td>B-2025-0054</td><td>Surface porosity</td><td>19 Aug 2026</td></tr>
+            <tr><td class="cell-strong">MB-7702</td><td>PackRight Supplies</td><td>B-2025-0049</td><td>Carton crush strength</td><td>15 Aug 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Add Supplier Modal: SPA1 -->
+<div class="modal-overlay" id="supplierModal" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="title">Add Supplier</div>
+      <span style="cursor:pointer;color:var(--ink-400);" onclick="document.getElementById('supplierModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="field"><label>Supplier Name</label><input type="text" placeholder="e.g. MetalWorks Sdn Bhd"></div>
+      <div class="grid-2">
+        <div class="field"><label>Product Category</label>
+          <select><option>Metal</option><option>Plastic / Resin</option><option>Packaging</option><option>Electronics</option></select>
+        </div>
+        <div class="field"><label>Certification</label><input type="text" placeholder="e.g. ISO 9001"></div>
+      </div>
+      <div class="field"><label>Contact Person</label><input type="text" placeholder="Name"></div>
+      <div class="field"><label>Contact Email / Phone</label><input type="text" placeholder="e.g. contact@supplier.com"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('supplierModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Add Supplier</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QC Inspector Dashboard — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .queue-row { display:flex; align-items:center; gap:14px; padding:12px; border-bottom:1px solid var(--border); }
+  .queue-row:last-child{border-bottom:none;}
+  .thumb { width:52px; height:52px; border-radius:8px; background:var(--navy-900); flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#4C6A94; font-size:18px; overflow:hidden;}
+  .queue-meta { flex:1; min-width:0; }
+  .queue-meta .id { font-size:13px; font-weight:700; color:var(--ink-900); }
+  .queue-meta .sub { font-size:11.5px; color:var(--ink-500); margin-top:2px; }
+  .conf-bar { width:64px; }
+  .conf-bar .pct { font-size:11px; font-weight:700; text-align:right; margin-bottom:3px; }
+  .alert-item { display:flex; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+  .alert-item:last-child { border-bottom:none; }
+  .alert-dot { width:8px; height:8px; border-radius:50%; margin-top:5px; flex-shrink:0; }
+  .live-badge { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; color:var(--red-600); }
+  .live-dot { width:6px; height:6px; border-radius:50%; background:var(--red-600); animation:pulse 1.4s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+
+    <div class="nav-group-label">QC Inspector</div>
+    <a class="nav-item active" href="qc_inspector_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item" href="qc_live_inspection.html"><span class="icon">◉</span>Live Inspection</a>
+    <a class="nav-item" href="qc_review_queue.html"><span class="icon">☑</span>Review Queue</a>
+    <a class="nav-item" href="qc_defect_history.html"><span class="icon">☰</span>Defect &amp; Batch History</a>
+    <a class="nav-item" href="qc_corrective_actions.html"><span class="icon">✎</span>Corrective Actions</a>
+
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">QC Inspector Dashboard</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">RN</div>Rina Nasir</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Pending Review</div>
+          <div class="stat-value num">18</div>
+          <div class="stat-delta up">▲ 4 since last hour</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Inspected Today</div>
+          <div class="stat-value num">642</div>
+          <div class="stat-delta flat">On pace with yesterday</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Today's Defect Rate</div>
+          <div class="stat-value num">3.9%</div>
+          <div class="stat-delta down">▼ 0.6% vs yesterday</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">AI Override Rate</div>
+          <div class="stat-value num">6.2%</div>
+          <div class="stat-delta flat">Within normal range</div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="align-items:start;">
+
+        <!-- Review queue -->
+        <div class="card card-pad">
+          <div class="card-head">
+            <div>
+              <div class="card-title">AI Review Queue</div>
+              <div class="card-sub">Items flagged for inspector validation</div>
+            </div>
+            <a class="card-link" href="qc_review_queue.html">Open queue →</a>
+          </div>
+
+          <div>
+            <div class="queue-row">
+              <div class="thumb">🖼</div>
+              <div class="queue-meta">
+                <div class="id">IMG-08231 · Batch PB-2026-0142</div>
+                <div class="sub">Scratch detected · Bracket Housing A3</div>
+              </div>
+              <span class="badge badge-red">Reject</span>
+            </div>
+            <div class="queue-row">
+              <div class="thumb">🖼</div>
+              <div class="queue-meta">
+                <div class="id">IMG-08232 · Batch PB-2026-0142</div>
+                <div class="sub">Surface discoloration · low confidence</div>
+              </div>
+              <span class="badge badge-amber">Needs Review</span>
+            </div>
+            <div class="queue-row">
+              <div class="thumb">🖼</div>
+              <div class="queue-meta">
+                <div class="id">IMG-08233 · Batch PB-2026-0139</div>
+                <div class="sub">No defects found · Weld Joint B1</div>
+              </div>
+              <span class="badge badge-green">Pass</span>
+            </div>
+            <div class="queue-row">
+              <div class="thumb">🖼</div>
+              <div class="queue-meta">
+                <div class="id">IMG-08234 · Batch PB-2026-0142</div>
+                <div class="sub">Dent, moderate severity · Panel C2</div>
+              </div>
+              <span class="badge badge-red">Reject</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live alerts -->
+        <div class="flex-col gap-14">
+          <div class="card card-pad">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Real-Time Defect Alerts</div>
+                <div class="card-sub">Line 2 · Inspection Station 4</div>
+              </div>
+              <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+            </div>
+            <div>
+              <div class="alert-item">
+                <div class="alert-dot" style="background:var(--red-600);"></div>
+                <div>
+                  <div class="cell-strong text-sm">Critical: Crack detected</div>
+                  <div class="text-sm text-muted">Batch PB-2026-0142 · 09:41:12</div>
+                </div>
+              </div>
+              <div class="alert-item">
+                <div class="alert-dot" style="background:var(--amber-500);"></div>
+                <div>
+                  <div class="cell-strong text-sm">Minor: Surface blemish</div>
+                  <div class="text-sm text-muted">Batch PB-2026-0142 · 09:38:47</div>
+                </div>
+              </div>
+              <div class="alert-item">
+                <div class="alert-dot" style="background:var(--red-600);"></div>
+                <div>
+                  <div class="cell-strong text-sm">Major: Dimensional mismatch</div>
+                  <div class="text-sm text-muted">Batch PB-2026-0139 · 09:22:03</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-pad">
+            <div class="card-title" style="margin-bottom:12px;">Defect Types Today</div>
+            <div class="flex-col gap-10">
+              <div>
+                <div class="flex justify-between text-sm mb-0" style="margin-bottom:4px;"><span>Scratch</span><span class="cell-strong">38%</span></div>
+                <div class="progress-track"><div class="progress-fill" style="width:38%;"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-0" style="margin-bottom:4px;"><span>Discoloration</span><span class="cell-strong">27%</span></div>
+                <div class="progress-track"><div class="progress-fill" style="width:27%; background:var(--amber-500);"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-0" style="margin-bottom:4px;"><span>Dent</span><span class="cell-strong">21%</span></div>
+                <div class="progress-track"><div class="progress-fill" style="width:21%; background:var(--red-600);"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-0" style="margin-bottom:4px;"><span>Crack</span><span class="cell-strong">14%</span></div>
+                <div class="progress-track"><div class="progress-fill" style="width:14%; background:var(--ink-500);"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

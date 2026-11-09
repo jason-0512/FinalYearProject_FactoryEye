@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Root-Cause Analysis — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .thumb-sm { width:36px; height:36px; border-radius:6px; background:var(--navy-900); display:flex; align-items:center; justify-content:center; font-size:13px; }
+  .link-line { display:flex; align-items:center; gap:8px; color:var(--ink-400); font-size:13px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">Maintenance</div>
+    <a class="nav-item" href="maintenance_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item" href="maintenance_machines.html"><span class="icon">⚙</span>Machines &amp; Equipment</a>
+    <a class="nav-item" href="maintenance_schedule.html"><span class="icon">📅</span>Maintenance Schedule</a>
+    <a class="nav-item active" href="maintenance_root_cause.html"><span class="icon">⌁</span>Root-Cause Analysis</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Root-Cause Analysis</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">TK</div>Tariq Khalid</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="card card-pad" style="margin-bottom:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Defect–Machine Correlation</div>
+            <div class="card-sub">Correlate inspection defects with specific machines · MEM6</div>
+          </div>
+          <select style="padding:8px 12px; border:1px solid var(--border); border-radius:6px; font-size:13px;">
+            <option>Last 7 days</option>
+            <option>Last 30 days</option>
+          </select>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Machine</th><th>Linked Defect Type</th><th>Occurrences</th><th>Affected Batches</th><th>Correlation Confidence</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="flex gap-8 items-center"><div class="thumb-sm">⚙</div><span class="cell-strong">Welder Unit WM-07</span></div></td>
+              <td><span class="badge badge-red">Crack</span></td>
+              <td class="num">7</td>
+              <td>PB-2026-0139, PB-2026-0135</td>
+              <td class="num">High — 91%</td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-8 items-center"><div class="thumb-sm">⚙</div><span class="cell-strong">Conveyor Guide L2-CG3</span></div></td>
+              <td><span class="badge badge-amber">Scratch</span></td>
+              <td class="num">12</td>
+              <td>PB-2026-0142</td>
+              <td class="num">High — 87%</td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-8 items-center"><div class="thumb-sm">⚙</div><span class="cell-strong">Press Machine PM-12</span></div></td>
+              <td><span class="badge badge-gray">Dimensional Mismatch</span></td>
+              <td class="num">4</td>
+              <td>PB-2026-0130</td>
+              <td class="num">Moderate — 62%</td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-8 items-center"><div class="thumb-sm">⚙</div><span class="cell-strong">Robotic Arm RA-03</span></div></td>
+              <td><span class="badge badge-gray">Dent</span></td>
+              <td class="num">2</td>
+              <td>PB-2026-0135</td>
+              <td class="num">Low — 38%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card card-pad">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Investigation — Welder Unit WM-07</div>
+            <div class="card-sub">7 crack defects traced to this machine in the last 7 days</div>
+          </div>
+          <span class="badge badge-red">High Priority</span>
+        </div>
+        <div class="flex-col gap-10">
+          <div class="link-line">📷 IMG-08214 → 🔧 WM-07 → ⚠ Crack, Weld Joint B1</div>
+          <div class="link-line">📷 IMG-08201 → 🔧 WM-07 → ⚠ Crack, Weld Joint B1</div>
+          <div class="link-line">📷 IMG-08188 → 🔧 WM-07 → ⚠ Crack, Weld Joint B1</div>
+        </div>
+        <div class="field" style="margin-top:16px;">
+          <label>Root Cause Notes</label>
+          <input type="text" value="Cooling system degradation causing intermittent overheating during extended weld cycles" readonly>
+        </div>
+        <button class="btn btn-primary" style="margin-top:4px;">Create Corrective Work Order</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

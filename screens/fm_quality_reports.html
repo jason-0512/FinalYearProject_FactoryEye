@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quality Reports & Trends — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .trend-bars { display:flex; align-items:flex-end; gap:8px; height:130px; padding-top:8px; }
+  .trend-bar { flex:1; background: var(--steel-600); border-radius:4px 4px 0 0; }
+  .trend-bar.peak { background: var(--red-600); }
+  .trend-labels { display:flex; gap:8px; margin-top:6px; }
+  .trend-labels span { flex:1; text-align:center; font-size:10.5px; color:var(--ink-500); }
+  .issue-row { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); }
+  .issue-row:last-child { border-bottom:none; }
+  .issue-ic { width:32px; height:32px; border-radius:50%; background:var(--red-100); color:var(--red-600); display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">Factory Manager</div>
+    <a class="nav-item" href="fm_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item active" href="fm_quality_reports.html"><span class="icon">📊</span>Quality Reports &amp; Trends</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Quality Reports &amp; Defect Trends</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">JW</div>Jason Wong</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="card card-pad" style="margin-bottom:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Generate Quality Report</div>
+            <div class="card-sub">Analyze defect trends across batches, products, and lines · QIM6</div>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="field mb-0">
+            <label>Date Range</label>
+            <select><option>Last 30 days</option><option>Last 90 days</option><option>Custom range</option></select>
+          </div>
+          <div class="field mb-0">
+            <label>Scope</label>
+            <select><option>All Lines</option><option>Line 1</option><option>Line 2</option><option>Line 3</option></select>
+          </div>
+          <div class="field mb-0">
+            <label>Product Type</label>
+            <select><option>All Products</option><option>Bracket Housing A3</option><option>Weld Joint B1</option><option>Panel C2</option></select>
+          </div>
+        </div>
+        <div class="flex gap-10" style="margin-top:4px;">
+          <button class="btn btn-primary">Generate Report</button>
+          <button class="btn btn-secondary" onclick="document.getElementById('exportModal').style.display='flex'">⬇ Export</button>
+        </div>
+      </div>
+
+      <div class="grid-2" style="grid-template-columns: 1.3fr 1fr; align-items:start;">
+
+        <div class="card card-pad">
+          <div class="card-head">
+            <div class="card-title">Defect Rate Trend</div>
+            <span class="badge badge-red">Line 2 elevated</span>
+          </div>
+          <div class="trend-bars">
+            <div class="trend-bar" style="height:40%;"></div>
+            <div class="trend-bar" style="height:48%;"></div>
+            <div class="trend-bar" style="height:52%;"></div>
+            <div class="trend-bar" style="height:61%;"></div>
+            <div class="trend-bar peak" style="height:88%;"></div>
+            <div class="trend-bar" style="height:70%;"></div>
+            <div class="trend-bar" style="height:55%;"></div>
+            <div class="trend-bar" style="height:44%;"></div>
+            <div class="trend-bar" style="height:41%;"></div>
+            <div class="trend-bar" style="height:38%;"></div>
+          </div>
+          <div class="trend-labels">
+            <span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span><span>W9</span><span>W10</span>
+          </div>
+
+          <div class="card-title text-sm" style="margin:20px 0 10px;">Defect Breakdown by Type</div>
+          <div class="flex-col gap-10">
+            <div>
+              <div class="flex justify-between text-sm" style="margin-bottom:4px;"><span>Scratch</span><span class="cell-strong">34%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width:34%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm" style="margin-bottom:4px;"><span>Crack</span><span class="cell-strong">24%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width:24%; background:var(--red-600);"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm" style="margin-bottom:4px;"><span>Discoloration</span><span class="cell-strong">22%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width:22%; background:var(--amber-500);"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm" style="margin-bottom:4px;"><span>Dent</span><span class="cell-strong">20%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width:20%; background:var(--ink-500);"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-pad">
+          <div class="card-head">
+            <div class="card-title">Recurring Issues Identified</div>
+          </div>
+          <div>
+            <div class="issue-row">
+              <div class="issue-ic">⌁</div>
+              <div>
+                <div class="cell-strong text-sm">Crack defects tied to Welder WM-07</div>
+                <div class="text-sm text-muted">7 occurrences over 7 days · Line 2 · Corrective action logged</div>
+              </div>
+            </div>
+            <div class="issue-row">
+              <div class="issue-ic">⌁</div>
+              <div>
+                <div class="cell-strong text-sm">Scratch defects tied to Conveyor Guide L2-CG3</div>
+                <div class="text-sm text-muted">12 occurrences over 7 days · Line 2 · Under investigation</div>
+              </div>
+            </div>
+            <div class="issue-row">
+              <div class="issue-ic">⌁</div>
+              <div>
+                <div class="cell-strong text-sm">Discoloration rising on Panel C2</div>
+                <div class="text-sm text-muted">Possible raw material batch issue · Supplier review pending</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="exportModal" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="title">Export Quality Report</div>
+      <span class="text-sm text-muted" style="cursor:pointer;" onclick="document.getElementById('exportModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Format</label>
+        <select><option>PDF</option><option>CSV</option></select>
+      </div>
+      <div class="field">
+        <label>Include</label>
+        <div style="display:flex; align-items:center; gap:8px; padding:6px 0;"><input type="checkbox" checked> Defect rate trend chart</div>
+        <div style="display:flex; align-items:center; gap:8px; padding:6px 0;"><input type="checkbox" checked> Defect breakdown by type</div>
+        <div style="display:flex; align-items:center; gap:8px; padding:6px 0;"><input type="checkbox" checked> Recurring issues summary</div>
+        <div style="display:flex; align-items:center; gap:8px; padding:6px 0;"><input type="checkbox"> Raw inspection records</div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('exportModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">⬇ Export Report</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

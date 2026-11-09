@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inspection Parameters — FactoryEye</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .prod-ic { width:36px; height:36px; border-radius:8px; background:var(--steel-100); color:var(--steel-600); display:flex; align-items:center; justify-content:center; font-size:15px; }
+  .cat-row { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid var(--border); }
+  .cat-row:last-child { border-bottom:none; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⬡</div>FactoryEye</div>
+    <div class="nav-group-label">QC Engineer</div>
+    <a class="nav-item" href="qce_dashboard.html"><span class="icon">◱</span>Dashboard</a>
+    <a class="nav-item active" href="qce_inspection_config.html"><span class="icon">⚗</span>Inspection Parameters</a>
+    <a class="nav-item" href="qce_reference_images.html"><span class="icon">🖼</span>Reference Images</a>
+    <a class="nav-item" href="qce_bom.html"><span class="icon">▤</span>Bill of Materials</a>
+    <div class="nav-group-label">Account</div>
+    <a class="nav-item" href="#"><span class="icon">⚙</span>Settings</a>
+    <a class="nav-item" href="#"><span class="icon">↩</span>Sign Out</a>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Inspection Parameters</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">SL</div>Siti Lim</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Product Inspection Configuration</div>
+              <div class="card-sub">Defect tolerance, categories, and acceptance criteria per product · PIC2</div>
+            </div>
+            <div class="search-input"><span>🔍</span>Search product type…</div>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Product</th><th>Defect Tolerance</th><th>Defect Categories</th><th>Acceptance Criteria</th><th>Last Updated</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="prod-ic">▣</div><span class="cell-strong">Bracket Housing A3</span></div></td>
+              <td class="num">2.0%</td>
+              <td>Scratch, Dent, Discoloration</td>
+              <td>No critical defects, ≤2 minor per unit</td>
+              <td class="text-muted">21 Aug</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('cfgModal').style.display='flex'">Edit</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="prod-ic">▣</div><span class="cell-strong">Weld Joint B1</span></div></td>
+              <td class="num">1.5%</td>
+              <td>Crack, Porosity</td>
+              <td>Zero cracks tolerated</td>
+              <td class="text-muted">18 Aug</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('cfgModal').style.display='flex'">Edit</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="prod-ic">▣</div><span class="cell-strong">Panel C2</span></div></td>
+              <td class="num">4.0%</td>
+              <td>Dent, Discoloration, Dimensional Mismatch</td>
+              <td>No critical defects, ≤3 minor per unit</td>
+              <td class="text-muted">20 Aug</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('cfgModal').style.display='flex'">Edit</button></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-10 items-center"><div class="prod-ic">▣</div><span class="cell-strong">Housing Cover D5</span></div></td>
+              <td class="num">3.0%</td>
+              <td>Scratch, Discoloration</td>
+              <td>No critical defects, ≤2 minor per unit</td>
+              <td class="text-muted">05 Aug</td>
+              <td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('cfgModal').style.display='flex'">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="cfgModal" style="display:none;">
+  <div class="modal-box" style="width:520px;">
+    <div class="modal-head">
+      <div class="title">Edit Inspection Parameters — Bracket Housing A3</div>
+      <span class="text-sm text-muted" style="cursor:pointer;" onclick="document.getElementById('cfgModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Defect Tolerance Level (%)</label>
+        <input type="text" value="2.0">
+      </div>
+
+      <div class="field">
+        <label>Defect Categories</label>
+        <div class="cat-row"><input type="checkbox" checked> Scratch</div>
+        <div class="cat-row"><input type="checkbox" checked> Dent</div>
+        <div class="cat-row"><input type="checkbox" checked> Discoloration</div>
+        <div class="cat-row"><input type="checkbox"> Crack</div>
+        <div class="cat-row"><input type="checkbox"> Dimensional Mismatch</div>
+      </div>
+
+      <div class="field">
+        <label>Acceptance Criteria</label>
+        <input type="text" value="No critical defects, ≤2 minor per unit">
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label>Severity Threshold — Reject</label>
+          <select><option>High confidence only (≥85%)</option><option>Medium and above (≥60%)</option></select>
+        </div>
+        <div class="field">
+          <label>Severity Threshold — Flag for Review</label>
+          <select><option>50–84% confidence</option><option>40–84% confidence</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('cfgModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Save Parameters</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

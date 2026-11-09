@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactoryEye — Production Batches</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><div class="logo-dot">⚙</div>FactoryEye</div>
+
+    <div class="nav-group-label">Dashboard</div>
+    <a class="nav-item" href="production_supervisor_dashboard.html"><span class="icon">▦</span> Dashboard</a>
+
+    <div class="nav-group-label">Operations</div>
+    <div class="nav-item active"><span class="icon">▣</span> Production Batches</div>
+    <a class="nav-item" href="inventory_materials.html"><span class="icon">▤</span> Inventory &amp; Materials</a>
+
+    <div class="nav-group-label">Configuration</div>
+    <a class="nav-item" href="shift_scheduling.html"><span class="icon">◫</span> Staff Management</a>
+
+    <div class="nav-group-label">Equipment</div>
+    <a class="nav-item" href="maintenance_machines.html"><span class="icon">⚒</span> Maintenance &amp; Machines</a>
+
+    <div class="nav-group-label">Analytics</div>
+    <a class="nav-item" href="supplier_performance.html"><span class="icon">◈</span> Supplier Performance</a>
+
+    <div class="nav-group-label">System</div>
+    <div class="nav-item"><span class="icon">🔔</span> Notifications <span class="badge badge-red" style="margin-left:auto;">3</span></div>
+    <div class="nav-item"><span class="icon">⚙</span> Settings</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Production Batches</div>
+      <div class="topbar-right">
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar-chip"><div class="avatar-circle">PS</div> Production Supervisor <span style="color:var(--ink-400)">▾</span></div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-label">Active Batches</div><div class="stat-value num">12</div></div>
+        <div class="stat-card"><div class="stat-label">Planned</div><div class="stat-value num">4</div></div>
+        <div class="stat-card"><div class="stat-label">Completed Today</div><div class="stat-value num">3</div></div>
+        <div class="stat-card"><div class="stat-label">Avg. Pass Rate</div><div class="stat-value num">94.2%</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-pad" style="padding-bottom:0;">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Production Batches</div>
+              <div class="card-sub">Create, track, and close batch runs. Batches are linked to inspected items and final outcomes.</div>
+            </div>
+            <button class="btn btn-primary" onclick="document.getElementById('newBatchModal').style.display='flex'">+ Create Batch</button>
+          </div>
+
+          <div class="flex items-center gap-14" style="margin-bottom:16px;">
+            <div class="search-input" style="width:240px;">🔍 <span>Search batch ID…</span></div>
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+              <option>All Product Types</option>
+              <option>Gear Shaft</option>
+              <option>Piston Rod</option>
+              <option>Valve Body</option>
+            </select>
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+              <option>All Status</option>
+              <option>Planned</option>
+              <option>In Progress</option>
+              <option>Completed</option>
+            </select>
+            <input type="date" style="padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--ink-700);">
+          </div>
+        </div>
+
+        <table>
+          <thead><tr><th>Batch ID</th><th>Product</th><th>Line</th><th>Planned Qty</th><th>Inspection Status</th><th>Status</th><th>Progress</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="cell-strong">B-2025-0056</td><td>Gear Shaft</td><td>Line 1</td><td class="num">500</td>
+              <td><span class="badge badge-blue">330 inspected</span></td>
+              <td><span class="badge badge-blue">In Progress</span></td>
+              <td style="min-width:100px;"><div class="progress-track"><div class="progress-fill" style="width:66%;"></div></div></td>
+              <td><a class="card-link" href="#">View</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">B-2025-0054</td><td>Piston Rod</td><td>Line 2</td><td class="num">300</td>
+              <td><span class="badge badge-blue">120 inspected</span></td>
+              <td><span class="badge badge-blue">In Progress</span></td>
+              <td style="min-width:100px;"><div class="progress-track"><div class="progress-fill" style="width:40%;"></div></div></td>
+              <td><a class="card-link" href="#">View</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">B-2025-0052</td><td>Valve Body</td><td>Line 1</td><td class="num">400</td>
+              <td><span class="badge badge-gray">Not started</span></td>
+              <td><span class="badge badge-gray">Planned</span></td>
+              <td style="min-width:100px;"><div class="progress-track"><div class="progress-fill" style="width:0%;"></div></div></td>
+              <td><a class="card-link" href="#">Start</a></td>
+            </tr>
+            <tr>
+              <td class="cell-strong">B-2025-0049</td><td>Gear Shaft</td><td>Line 3</td><td class="num">250</td>
+              <td><span class="badge badge-green">250 inspected</span></td>
+              <td><span class="badge badge-green">Completed</span></td>
+              <td style="min-width:100px;"><div class="progress-track"><div class="progress-fill" style="width:100%;background:var(--green-600);"></div></div></td>
+              <td><a class="card-link" href="#">Report</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Batch summary report card (PBM7) -->
+      <div class="card card-pad" style="margin-top:18px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Batch Summary — B-2025-0049 (Completed)</div>
+            <div class="card-sub">Gear Shaft · Line 3 · Closed 20 Aug 2026</div>
+          </div>
+          <button class="btn btn-secondary btn-sm">Export PDF</button>
+        </div>
+        <div class="grid-3">
+          <div class="stat-card"><div class="stat-label">Pass</div><div class="stat-value num" style="color:var(--green-600)">236</div></div>
+          <div class="stat-card"><div class="stat-label">Fail</div><div class="stat-value num" style="color:var(--red-600)">14</div></div>
+          <div class="stat-card"><div class="stat-label">Defect Rate</div><div class="stat-value num">5.6%</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Create Batch Modal: PBM1, validated against stock (PBM8) -->
+<div class="modal-overlay" id="newBatchModal" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="title">Create Production Batch</div>
+      <span style="cursor:pointer;color:var(--ink-400);" onclick="document.getElementById('newBatchModal').style.display='none'">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="field"><label>Batch ID</label><input type="text" value="B-2025-0058" readonly></div>
+      <div class="grid-2">
+        <div class="field"><label>Product Type</label>
+          <select><option>Gear Shaft</option><option>Piston Rod</option><option>Valve Body</option></select>
+        </div>
+        <div class="field"><label>Production Line</label>
+          <select><option>Line 1</option><option>Line 2</option><option>Line 3</option></select>
+        </div>
+      </div>
+      <div class="field"><label>Planned Quantity</label><input type="number" placeholder="e.g. 500"></div>
+      <div class="card" style="background:var(--canvas);border-color:var(--border);padding:12px 14px;">
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-muted">Raw material stock check (per BOM)</span>
+          <span class="badge badge-green">Sufficient</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" onclick="document.getElementById('newBatchModal').style.display='none'">Cancel</button>
+      <button class="btn btn-primary">Create Batch</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
